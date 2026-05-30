@@ -1,0 +1,30 @@
+La carpeta src (que viene de source, es decir, código fuente) es donde vas a pasar el 99% de tu tiempo. Es el corazón de tu proyecto.
+Imagina que tu página web es como una casa que estás construyendo. Vamos a abrir la puerta de esa carpeta src y ver qué hay en cada "habitación", explicado de forma muy sencilla:
+📄 1. La carpeta pages (Las habitaciones de tu casa)
+Esta es la carpeta más importante y la más fácil de entender. Cada archivo que pongas aquí se convierte automáticamente en una ruta (URL) de tu página web.
+Si miras dentro, verás un archivo llamado index.astro. Este archivo es tu página de inicio (la portada de tu portfolio). Es lo primero que ve la gente al entrar a tuweb.com.
+Si mañana creas ahí dentro un archivo llamado sobre-mi.astro, Astro automáticamente creará la dirección [tuweb.com/sobre-mi](https://tuweb.com/sobre-mi). ¡Así de mágico!
+🧱 2. La carpeta components (Tus piezas de Lego)
+En el desarrollo web moderno, no construimos una página de golpe, sino que la armamos con piezas pequeñas. Esas piezas van aquí.
+Imagina que quieres que todos tus proyectos en el portfolio tengan un diseño de "tarjeta" (con una foto, título y descripción).
+En lugar de copiar y pegar ese código 10 veces en tu página de inicio, creas un componente llamado TarjetaProyecto.astro dentro de esta carpeta.
+Luego, simplemente usas esa "pieza de Lego" donde la necesites. Si un día decides cambiarle el color, lo cambias aquí y se actualiza mágicamente en toda tu web.
+🖼️ 3. La carpeta layouts (El molde o esqueleto)
+Piensa en una página web típica: suele tener una barra de navegación arriba y un pie de página (footer) abajo. Esto se repite en todas las páginas.
+Para no tener que escribir la barra de navegación en la página de inicio, en la página "sobre mí" y en la página "contacto", creamos un Layout (plantilla).
+Si miras dentro, verás un archivo llamado Layout.astro. Este archivo contiene el esqueleto de tu web (el código HTML base, la configuración de idioma, cosas para el SEO en Google, etc.).
+Las páginas de la carpeta pages simplemente dicen: "Oye, quiero usar el molde Layout.astro e insertar mi contenido en el medio".
+📦 4. La carpeta assets (Tu trastero de archivos)
+Aquí es donde guardarás tus cosas estáticas:
+Las fotografías tuyas que vayas a usar.
+Capturas de pantalla de tus proyectos.
+Tipografías (fonts) si decides descargar alguna especial.
+Astro es muy inteligente y cuando guardas imágenes aquí, él mismo las comprime y optimiza para que tu web cargue súper rápido.
+🤖 5. El archivo env.d.ts (¡No tocar!)
+Verás un archivo suelto con este nombre raro. Es simplemente un archivo de configuración interno que ayuda a TypeScript a entender cómo funciona Astro.
+Regla de oro para novatos: Finge que este archivo no existe. No lo borres, pero no necesitas abrirlo ni escribir nada en él.
+En resumen:
+Diseñamos el esqueleto en layouts.
+Construimos piezas pequeñas en components.
+Ponemos nuestras fotos en assets.
+Juntamos todo eso en las pages para crear la web final.

@@ -1,0 +1,293 @@
+/* Reiniciamos los márgenes por defecto del navegador */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* El fondo oscuro de toda la web */
+body {
+    background-color: #020617; /* Un azul marino muy oscuro */
+    color: #e2e8f0; /* Texto gris claro */
+    min-height: 100vh;
+}
+
+/* Contenedor para centrar el contenido */
+.contenedor-central {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+}
+
+/* Estilos de tus textos */
+h1 {
+    font-size: 3rem;
+    color: #ffffff;
+    margin-bottom: 1rem;
+}
+
+.texto-verde {
+    color: #34d399; /* Verde esmeralda brillante */
+}
+
+.subtitulo {
+    font-size: 1.25rem;
+    color: #94a3b8;
+}
+
+/* Capa invisible para la luz del ratón */
+#efecto-luz {
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 30;
+}
+
+/* Contenedor del texto dinámico para que no se mueva el resto de la página */
+.contenedor-dinamico {
+    height: 35px; /* Fijamos la altura */
+    overflow: hidden;
+    margin-top: 0.5rem;
+}
+
+/* Estilo para la palabra que va a ir cambiando 
+.palabra-cambiante {
+    font-size: 1.5rem;
+    color: #94a3b8; /* Gris elegante 
+    font-weight: 500;
+    display: inline-block;
+    transition: all 0.5s ease-in-out; /* Animación suave de medio segundo 
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Clase que aplicaremos por JavaScript para ocultar la palabra temporalmente 
+.palabra-oculta {
+    opacity: 0;
+    transform: translateY(-20px); /* Hace que "suba" y desaparezca 
+} */
+
+/* Estilo general del texto que se escribe */
+.texto-maquina {
+    font-size: 2rem;
+    color: #94a3b8;
+    font-weight: 100;
+    display: inline-flex;
+    align-items: center;
+    min-height: 2rem; /* Mantiene la altura para que no salte el contenido */
+}
+
+/* El cursor parpadeante verde */
+.cursor {
+    display: inline-block;
+    width: 1.5px;
+    height: 1.5rem;
+    background-color: #34d399; /* Mismo verde que tu nombre */
+    margin-left: 4px;
+    animation: parpadeo 1s infinite; /* Hace que parpadee infinitamente */
+}
+
+/* La animación que enciende y apaga el cursor */
+@keyframes parpadeo {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* --- ESTILOS DEL NAVBAR --- */
+
+/* El contenedor principal: fijo, centrado y con efecto cristal */
+/* El contenedor principal con efecto Glassmorphism premium */
+.navbar-flotante {
+    position: fixed;
+    top: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    
+    /* 1. EL CRISTAL (Fondo casi transparente) */
+    background: rgba(255, 255, 255, 0.03); 
+    
+    /* 2. EL DESENFOQUE (La magia esmerilada) */
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px); /* Soporte para navegadores Safari/Apple */
+    
+    /* 3. LOS REFLEJOS DE LUZ (Bordes 3D) */
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 1px solid rgba(255, 255, 255, 0.15); /* Reflejo de luz superior */
+    border-left: 1px solid rgba(255, 255, 255, 0.15); /* Reflejo de luz lateral */
+    
+    /* 4. LA SOMBRA (Para que parezca que flota) */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    
+    /* Estructura básica */
+    padding: 0.5rem;
+    border-radius: 50px;
+    display: flex;
+    gap: 0.5rem;
+    z-index: 100;
+}
+
+/* Cada botón del navbar */
+.nav-item {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #94a3b8; /* Gris claro */
+    padding: 0.6rem;
+    border-radius: 50px;
+    transition: all 0.3s ease; /* Animación fluida */
+    overflow: hidden; /* Oculta lo que sobresale */
+}
+
+/* Efecto al pasar el ratón por el botón */
+.nav-item:hover {
+    background-color: rgba(52, 211, 153, 0.15); /* Fondo verde suave */
+    color: #34d399; /* Icono y texto en verde brillante */
+}
+
+/* El texto de la descripción (magia aquí) */
+.nav-text {
+    max-width: 0; /* Ancho cero por defecto para que no se vea */
+    opacity: 0; /* Totalmente transparente */
+    white-space: nowrap; /* Para que el texto no salte de línea */
+    transition: all 0.4s ease; /* Animación de expansión */
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Al hacer hover en el botón, el texto crece y aparece */
+.nav-item:hover .nav-text {
+    max-width: 100px; /* Se expande */
+    opacity: 1; /* Se hace visible */
+    margin-left: 0.5rem; /* Se separa un poco del icono */
+}
+
+/* Aseguramos que los iconos no se aplasten */
+.nav-icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+/* --- SECCIÓN HABILIDADES --- */
+.seccion-habilidades {
+    margin-top: 150px; /* Separación de la presentación principal */
+    width: 100%;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.seccion-habilidades h2 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: #ffffff;
+}
+
+/* Cuadrícula base (1 columna para móviles) */
+.grid-tarjetas {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+/* Cuando la pantalla sea más grande (tablets/PC), forzamos 2 columnas (formato 2x2) */
+@media (min-width: 768px) {
+    .grid-tarjetas {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Los bordes superiores de colores */
+.borde-azul { border-top: 4px solid #3b82f6; }
+.borde-verde { border-top: 4px solid #10b981; }
+.borde-amarillo { border-top: 4px solid #eab308; }
+.borde-naranja { border-top: 4px solid #f97316; } 
+
+/* La tarjeta base */
+.tarjeta-terminal {
+    background-color: #1e293b; /* Fondo oscuro de la tarjeta */
+    border-radius: 12px;
+    overflow: hidden; /* Para que el contenido no se salga de los bordes curvos */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Los bordes superiores de colores */
+.borde-azul { border-top: 4px solid #3b82f6; }
+.borde-verde { border-top: 4px solid #10b981; }
+.borde-amarillo { border-top: 4px solid #eab308; }
+
+/* La barra superior de la ventana (donde van los botones y el título) */
+.cabecera-terminal {
+    background-color: #0f172a; /* Más oscuro que el resto de la tarjeta */
+    padding: 0.8rem 1rem;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+/* Los 3 puntitos estilo Mac */
+.botones-mac {
+    display: flex;
+    gap: 6px;
+    position: absolute;
+    left: 1rem;
+}
+.botones-mac span {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+.botones-mac span:nth-child(1) { background-color: #ef4444; } /* Rojo */
+.botones-mac span:nth-child(2) { background-color: #eab308; } /* Amarillo */
+.botones-mac span:nth-child(3) { background-color: #22c55e; } /* Verde */
+
+/* Título de la tarjeta (FRONTEND, BACKEND...) */
+.cabecera-terminal h3 {
+    width: 100%;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #f8fafc;
+    letter-spacing: 2px;
+    margin: 0;
+}
+
+/* El cuerpo donde van los iconos en 2 columnas */
+.cuerpo-terminal {
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem 1rem; /* 2rem de espacio vertical, 1rem horizontal */
+}
+
+/* Cada tecnología individual (icono + texto) */
+.tecnologia {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    color: #cbd5e1;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: transform 0.3s ease;
+}
+
+.tecnologia:hover {
+    transform: translateY(-5px); /* Pequeño saltito al pasar el ratón */
+    color: #ffffff;
+}
+
+/* Tamaño de los iconos */
+.tecnologia svg, .tecnologia img {
+    width: 45px;
+    height: 45px;
+}
