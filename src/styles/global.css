@@ -8,11 +8,80 @@
 
 /* El fondo oscuro de toda la web */
 body {
-    background-color: #020617; /* Un azul marino muy oscuro */
-    color: #e2e8f0; /* Texto gris claro */
+    background-color: #020617;
+    color: #e2e8f0;
     min-height: 100vh;
 }
 
+/* --- FONDO ANIMADO: ESTRELLAS FUGACES --- */
+
+/* Contenedor del cielo */
+.cielo-estrellado {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Detrás de tu contenido */
+    pointer-events: none; /* No interfiere con el ratón */
+    overflow: hidden; /* Evita que aparezca barra de scroll lateral */
+}
+
+/* La estrella base (la cola difuminada) */
+.estrella-fugaz {
+    position: absolute;
+    width: 150px;
+    height: 2px;
+    background: linear-gradient(90deg, rgba(255,255,255, 0), rgba(255,255,255, 1));
+    border-radius: 999px;
+    filter: drop-shadow(0 0 6px rgba(52, 211, 153, 1)); /* Brillo esmeralda */
+    opacity: 0;
+    animation: viaje-estelar linear infinite;
+}
+
+/* La cabeza de la estrella (el punto brillante frontal) */
+.estrella-fugaz::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 4px;
+    background: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 0 15px #34d399, 0 0 30px #34d399; /* Halo de luz */
+}
+
+/* La animación que mueve la estrella en diagonal */
+@keyframes viaje-estelar {
+    0% {
+        transform: rotate(35deg) translateX(-100vw);
+        opacity: 1;
+    }
+    100% {
+        transform: rotate(35deg) translateX(150vw);
+        opacity: 0;
+    }
+}
+
+/* Retrasos y posiciones aleatorias para las 4 estrellas */
+.estrella-fugaz:nth-child(1) { top: 10%; left: -20%; animation-duration: 4s; animation-delay: 0s; }
+.estrella-fugaz:nth-child(2) { top: -10%; left: 30%; animation-duration: 6s; animation-delay: 2s; }
+.estrella-fugaz:nth-child(3) { top: 40%; left: -30%; animation-duration: 5s; animation-delay: 4s; }
+.estrella-fugaz:nth-child(4) { top: -20%; left: 70%; animation-duration: 7s; animation-delay: 6s; }
+/*
+body {
+    background-color: #020617;
+    color: #e2e8f0;
+    min-height: 100vh;
+    /* La magia de la cuadrícula sutil 
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 80px 80px; /* Tamaño de los cuadraditos 
+}
+*/
 /* Contenedor para centrar el contenido */
 .contenedor-central {
     display: flex;
@@ -102,6 +171,66 @@ h1 {
     50% { opacity: 0; }
 }
 
+/* --- EXTRAS DE LA PANTALLA DE INICIO --- */
+
+/* 1. Foto de perfil */
+.contenedor-foto {
+    margin-bottom: 1.5rem;
+}
+
+.foto-perfil {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%; /* La hace totalmente redonda */
+    object-fit: cover; /* Asegura que la foto no se deforme */
+    border: 3px solid #34d399; /* Borde verde esmeralda */
+    box-shadow: 0 0 25px rgba(52, 211, 153, 0.3); /* Brillo difuminado */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto al pasar el ratón por la foto */
+.foto-perfil:hover {
+    transform: scale(1.05); /* Crece un poquito */
+    box-shadow: 0 0 35px rgba(52, 211, 153, 0.6); /* Brilla más */
+}
+
+/* 2. Botones de Redes Sociales */
+.contenedor-redes {
+    display: flex;
+    gap: 1.5rem; /* Separación entre botones */
+    margin-top: 2rem;
+    justify-content: center;
+}
+
+.boton-red {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.03); /* Efecto cristal */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #94a3b8; /* Gris claro */
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+/* Efecto al pasar el ratón por los botones */
+.boton-red:hover {
+    background-color: rgba(52, 211, 153, 0.15); /* Fondo verde semitransparente */
+    color: #34d399; /* Icono verde */
+    border-color: #34d399;
+    transform: translateY(-5px); /* Pequeño salto hacia arriba */
+}
+
+/* Tamaño de los iconos SVG de las redes */
+.boton-red svg {
+    width: 22px;
+    height: 22px;
+    fill: currentColor; /* Toma el color del texto automáticamente */
+}
+
 /* --- ESTILOS DEL NAVBAR --- */
 
 /* El contenedor principal: fijo, centrado y con efecto cristal */
@@ -177,13 +306,79 @@ h1 {
     flex-shrink: 0;
 }
 
+
+/* --- INDICADOR DE SCROLL --- */
+.contenedor-scroll {
+    position: absolute; /* Para pegarlo abajo sin mover el resto del contenido */
+    bottom: 2.5rem; /* Distancia desde el borde inferior */
+    left: 50%;
+    transform: translateX(-50%); /* Centrado perfecto */
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    opacity: 0.6; /* Un poco transparente para no robar atención */
+    transition: opacity 0.3s ease;
+}
+
+/* Que brille cuando pasas el ratón por encima */
+.contenedor-scroll:hover {
+    opacity: 1;
+}
+
+/* La cápsula exterior */
+.capsula-scroll {
+    width: 26px;
+    height: 42px;
+    border: 2px solid #94a3b8; /* Gris azulado */
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    padding-top: 6px;
+    transition: border-color 0.3s ease;
+}
+
+.contenedor-scroll:hover .capsula-scroll {
+    border-color: #34d399; /* El borde se vuelve verde al pasar el ratón */
+}
+
+/* El guion flotante de su interior */
+.guion-flotante {
+    width: 4px;
+    height: 8px;
+    background-color: #34d399; /* Tu verde esmeralda */
+    border-radius: 4px;
+    animation: deslizar-abajo 1.5s infinite; /* Animación infinita */
+}
+
+/* La animación que mueve el guion hacia abajo y lo desvanece */
+@keyframes deslizar-abajo {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(15px);
+        opacity: 0;
+    }
+}
+
 /* --- SECCIÓN HABILIDADES --- */
 .seccion-habilidades {
-    margin-top: 150px; /* Separación de la presentación principal */
+    /* 1. La magia del tamaño de pantalla */
+    min-height: 100vh; 
+    
+    /* 2. Centramos todo verticalmente usando Flexbox */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    /* 3. Mantenemos el ancho y el centrado horizontal */
     width: 100%;
     max-width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto; 
+    padding: 2rem 0; /* Un poco de espacio por arriba y abajo para que no se pegue en móviles */
+    position: relative;
+    z-index: 10;
 }
 
 .seccion-habilidades h2 {
@@ -200,18 +395,25 @@ h1 {
     align-items: start;
 }
 
-/* Cuando la pantalla sea más grande (tablets/PC), forzamos 2 columnas (formato 2x2) */
+/* Cuando la pantalla sea más grande (tablets/PC), forzamos 2 columnas */
 @media (min-width: 768px) {
     .grid-tarjetas {
         grid-template-columns: repeat(2, 1fr);
     }
+    
+    /* Esta clase hace que una tarjeta ocupe las 2 columnas enteras */
+    .tarjeta-ancha {
+        grid-column: span 2;
+    }
 }
+
 
 /* Los bordes superiores de colores */
 .borde-azul { border-top: 4px solid #3b82f6; }
 .borde-verde { border-top: 4px solid #10b981; }
 .borde-amarillo { border-top: 4px solid #eab308; }
 .borde-naranja { border-top: 4px solid #f97316; } 
+.borde-cian { border-top: 4px solid #06b6d4; } 
 
 /* La tarjeta base */
 .tarjeta-terminal {
@@ -220,11 +422,6 @@ h1 {
     overflow: hidden; /* Para que el contenido no se salga de los bordes curvos */
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
-
-/* Los bordes superiores de colores */
-.borde-azul { border-top: 4px solid #3b82f6; }
-.borde-verde { border-top: 4px solid #10b981; }
-.borde-amarillo { border-top: 4px solid #eab308; }
 
 /* La barra superior de la ventana (donde van los botones y el título) */
 .cabecera-terminal {
@@ -261,13 +458,14 @@ h1 {
     margin: 0;
 }
 
-/* El cuerpo donde van los iconos en 2 columnas */
+/* El cuerpo donde van los iconos en 2 columnas 
 .cuerpo-terminal {
     padding: 2rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 2rem 1rem; /* 2rem de espacio vertical, 1rem horizontal */
-}
+    gap: 2rem 1rem; 
+ } */
+
 
 /* Cada tecnología individual (icono + texto) */
 .tecnologia {
@@ -290,4 +488,12 @@ h1 {
 .tecnologia svg, .tecnologia img {
     width: 45px;
     height: 45px;
+}
+/* Cuerpo especial para la tarjeta ancha de herramientas */
+.cuerpo-herramientas {
+    padding: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centra todos los iconos */
+    gap: 2rem;
 }
