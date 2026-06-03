@@ -3,7 +3,11 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: system-ui, -apple-system, sans-serif;
+}
+/* --- CONFIGURACIÓN DE TIPOGRAFÍAS --- */
+:root {
+    --fuente-titulos: 'Outfit', system-ui, sans-serif;
+    --fuente-textos: 'Inter', system-ui, sans-serif;
 }
 
 /* El fondo oscuro de toda la web */
@@ -11,6 +15,28 @@ body {
     background-color: #020617;
     color: #e2e8f0;
     min-height: 100vh;
+    font-family: var(--fuente-textos);
+}
+/* Aplicamos la fuente moderna a todos los títulos */
+h1, h2, h3, h4 {
+    font-family: var(--fuente-titulos);
+}
+
+/* --- AJUSTES FINOS PARA H1 Y H3 --- */
+
+/* El H1 principal (Tu nombre y "Sobre Mí") */
+h1 {
+    font-weight: 800; /* Extra grueso para dar impacto */
+    letter-spacing: -1.5px; /* Juntamos un poco las letras para un look más moderno */
+    line-height: 1.1; /* Las líneas más pegadas si ocupa dos renglones */
+}
+
+/* Los H3 (Los nombres de tus Proyectos o subsecciones) */
+h3 {
+    font-weight: 700; /* Grueso, pero sin robarle protagonismo al H2 */
+    letter-spacing: -0.5px; /* Un recorte sutil */
+    line-height: 1.3;
+    color: #f8fafc; /* Aseguramos un color blanco muy brillante */
 }
 
 /* --- FONDO ANIMADO: ESTRELLAS FUGACES --- */
@@ -654,7 +680,7 @@ h1 {
     display: grid;
     grid-template-columns: 1fr;
     gap: 2rem;
-    align-items: start;
+    align-items: start; 
 }
 
 /* Cuando la pantalla sea más grande (tablets/PC), forzamos 2 columnas */
@@ -720,14 +746,6 @@ h1 {
     margin: 0;
 }
 
-/* El cuerpo donde van los iconos en 2 columnas 
-.cuerpo-terminal {
-    padding: 2rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem 1rem; 
- } */
-
 
 /* Cada tecnología individual (icono + texto) */
 .tecnologia {
@@ -753,9 +771,353 @@ h1 {
 }
 /* Cuerpo especial para la tarjeta ancha de herramientas */
 .cuerpo-herramientas {
-    padding: 2rem;
+    padding: 1.5rem 1rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: center; /* Centra todos los iconos */
-    gap: 2rem;
+    gap: 1.5rem;
+}
+
+/* ----------------------------------------------------------- PROYECTOS --------------------------------------------------------------------------------------------------*/
+.seccion-proyectos {
+    min-height: 100vh;
+    padding: 6rem 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 10;
+}
+
+/* Reutilizamos tu degradado para el título */
+.titulo-seccion {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 2.5rem;
+    background: linear-gradient(135deg, #34d399 0%, #3b82f6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -1px;
+}
+
+/* Cuadrícula responsiva: 1 columna en móvil, 2 o 3 en PC */
+.proyectos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+}
+
+/* La tarjeta del proyecto */
+.proyecto-card {
+    background: rgba(15, 23, 42, 0.6); /* Fondo azul muy oscuro y transparente */
+    border: 1px solid rgba(52, 211, 153, 0.2); /* Borde esmeralda sutil */
+    border-radius: 16px;
+    overflow: hidden; /* Para que la imagen no se salga de las esquinas redondeadas */
+    transition: all 0.4s ease;
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+}
+
+.proyecto-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(52, 211, 153, 0.5);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(52, 211, 153, 0.15);
+}
+
+/* Contenedor y efecto de la imagen */
+.imagen-contenedor {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.imagen-contenedor img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.proyecto-card:hover .imagen-contenedor img {
+    transform: scale(1.05); /* La imagen hace un zoom suave al pasar el ratón */
+}
+
+/* Cuerpo de la tarjeta */
+.contenido-card {
+    padding: 1.8rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Ocupa el espacio restante */
+}
+
+.contenido-card h3 {
+    color: #f8fafc;
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+}
+
+.contenido-card p {
+    color: #94a3b8;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    flex-grow: 1; /* Empuja los botones y cápsulas hacia abajo */
+}
+
+/* --- BOTONES DE PROYECTO --- */
+.enlaces-proyecto {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    margin-top: auto; /* Empuja los botones hacia abajo */
+}
+
+.btn-proyecto {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    flex: 1; /* Ambos botones ocupan la misma anchura */
+}
+
+/* Estilo para el botón de Código (GitHub) */
+.btn-proyecto.fantasma {
+    background-color: transparent;
+    color: #e2e8f0;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-proyecto.fantasma:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: #e2e8f0;
+}
+
+/* Estilo para el botón de Demo */
+.btn-proyecto.primario {
+    background-color: rgba(52, 211, 153, 0.1);
+    color: #34d399;
+    border: 1px solid #34d399;
+}
+
+.btn-proyecto.primario:hover {
+    background-color: #34d399;
+    color: #020617;
+    box-shadow: 0 0 15px rgba(52, 211, 153, 0.4);
+}
+
+/* --- CÁPSULAS DE TECNOLOGÍA --- */
+.tech-capsulas {
+    display: flex;
+    flex-wrap: wrap; /* Si hay muchas, bajan a la siguiente línea */
+    gap: 0.6rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05); /* Línea divisoria muy sutil */
+}
+
+.capsula {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background-color: rgba(0, 0, 0, 0.3);
+    color: #cbd5e1;
+    font-size: 0.8rem;
+    padding: 0.3rem 0.8rem;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Tamaño de los iconos de lenguaje dentro de la cápsula */
+.capsula svg {
+    width: 16px;
+    height: 16px;
+    display: block; /* Evita márgenes invisibles indeseados */
+}
+
+/* --- BOTÓN LEER MÁS Y RECORTES --- */
+.contenedor-descripcion {
+    margin-bottom: 1.5rem;
+    flex-grow: 1; /* Empuja el resto hacia abajo */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.texto-recortado {
+    color: #94a3b8;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 0.5rem !important; /* Sobrescribimos el margen anterior */
+    
+    /* La magia del recorte a 3 líneas */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+/* Esta clase se añadirá con Javascript al hacer clic */
+/* Esta clase se añadirá con Javascript al hacer clic */
+.texto-recortado.expandido {
+    display: block; /* Al quitar el webkit-box, el texto se libera por completo */
+    -webkit-line-clamp: unset;
+}
+
+/* El botón sutil de Leer más */
+.btn-leer-mas {
+    background: none;
+    border: none;
+    color: #34d399; /* Tu verde esmeralda */
+    font-size: 0.80rem;
+    align-self:center;
+    font-weight: 400;
+    cursor: pointer;
+    padding: 0;
+    text-decoration: underline;
+    text-underline-offset: 4px; /* Separa un poco el subrayado */
+    transition: color 0.3s ease;
+}
+
+.btn-leer-mas:hover {
+    color: #f8fafc; /* Se vuelve blanco al pasar el ratón */
+}
+
+/* ------------------------------------------ SECCIÓN EXPERIENCIA Y ESTUDIOS -------------------------------------- */
+.seccion-experiencia {
+    min-height: 100vh;
+    padding: 6rem 2rem;
+    max-width: 1100px; /* Hacemos el contenedor más ancho para que quepan las dos columnas */
+    margin: 0 auto;
+    position: relative;
+    z-index: 10;
+}
+
+/* La nueva cuadrícula para dividir en dos */
+.grid-trayectoria {
+    display: grid;
+    grid-template-columns: 1fr; /* En móvil: 1 columna */
+    gap: 4rem; /* Separación vertical en móvil */
+}
+
+/* En pantallas de tablet/ordenador, pasamos a 2 columnas iguales */
+@media (min-width: 850px) {
+    .grid-trayectoria {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* Títulos de cada columna (Experiencia / Estudios) */
+.titulo-columna {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: #f8fafc;
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    font-weight: 700;
+}
+
+/* Color esmeralda para los iconos de los títulos */
+.titulo-columna svg {
+    color: #34d399; 
+}
+
+/* El contenedor que dibuja la línea vertical a la izquierda */
+.timeline-contenedor {
+    position: relative;
+    padding-left: 2rem; 
+    border-left: 2px solid rgba(52, 211, 153, 0.2); 
+}
+
+/* Cada bloque individual */
+.timeline-item {
+    position: relative;
+    margin-bottom: 3rem;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+/* El puntito que va encima de la línea */
+.timeline-punto {
+    position: absolute;
+    left: -2.52rem; 
+    top: 0;
+    width: 18px;
+    height: 18px;
+    background-color: #020617; 
+    border: 2px solid rgba(52, 211, 153, 0.5); 
+    border-radius: 50%;
+    transition: all 0.4s ease;
+}
+
+/* Al pasar el ratón, el punto se ilumina */
+.timeline-item:hover .timeline-punto {
+    background-color: #34d399;
+    border-color: #34d399;
+    box-shadow: 0 0 15px rgba(52, 211, 153, 0.6);
+}
+
+/* La tarjeta que contiene el texto */
+.timeline-contenido {
+    background: rgba(15, 23, 42, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 1.8rem;
+    transition: all 0.4s ease;
+    backdrop-filter: blur(10px);
+}
+
+/* Efecto hover de la tarjeta */
+.timeline-item:hover .timeline-contenido {
+    border-color: rgba(52, 211, 153, 0.3);
+    transform: translateX(8px);
+    background: rgba(15, 23, 42, 0.7);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* La píldora de la fecha */
+.timeline-fecha {
+    display: inline-block;
+    color: #34d399;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    letter-spacing: 0.5px;
+    background: rgba(52, 211, 153, 0.1);
+    padding: 0.3rem 1rem;
+    border-radius: 50px;
+    border: 1px solid rgba(52, 211, 153, 0.2);
+}
+
+/* El título del puesto o estudios */
+.timeline-contenido h4 {
+    color: #f8fafc;
+    font-size: 1.3rem;
+    margin-bottom: 0.4rem;
+    font-weight: 700;
+}
+
+/* Nombre de la empresa o instituto */
+.timeline-empresa {
+    color: #94a3b8;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 1.2rem;
+    font-family: var(--fuente-textos); 
+}
+
+/* Texto de la descripción */
+.timeline-contenido p {
+    color: #cbd5e1;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 0;
 }
