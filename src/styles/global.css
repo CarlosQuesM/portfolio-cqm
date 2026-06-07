@@ -96,6 +96,10 @@ h3 {
 .estrella-fugaz:nth-child(2) { top: -10%; left: 30%; animation-duration: 6s; animation-delay: 2s; }
 .estrella-fugaz:nth-child(3) { top: 40%; left: -30%; animation-duration: 5s; animation-delay: 4s; }
 .estrella-fugaz:nth-child(4) { top: -20%; left: 70%; animation-duration: 7s; animation-delay: 6s; }
+.estrella-fugaz:nth-child(5) { top: 60%; left: -10%; animation-duration: 8s; animation-delay: 8s; }
+.estrella-fugaz:nth-child(6) { top: 80%; left: 20%; animation-duration: 9s; animation-delay: 10s; }
+.estrella-fugaz:nth-child(7) { top: 90%; left: 50%; animation-duration: 10s; animation-delay: 12s; }
+.estrella-fugaz:nth-child(8) { top: 40%; left: 50%; animation-duration: 1s; animation-delay: 14s; }
 /*
 body {
     background-color: #020617;
@@ -197,27 +201,53 @@ h1 {
     50% { opacity: 0; }
 }
 
-/* --- EXTRAS DE LA PANTALLA DE INICIO --- */
 
-/* 1. Foto de perfil */
-.contenedor-foto {
-    margin-bottom: 1.5rem;
+/* --- VÍDEO HERO PANTALLA PRINCIPAL --- */
+.contenedor-video-hero {
+    position: relative;
+    width: 100%;
+    max-width: 650px; /* Tamaño de cine, pero sin tapar el texto inferior */
+    aspect-ratio: 16 / 9; /* Formato panorámico perfecto */
+    margin: 0 auto 2.5rem auto;
+    border-radius: 24px; /* Bordes redondeados muy modernos */
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    
+    /* El halo de luz: mezcla el cian de la cara y el morado de la habitación */
+    box-shadow: 
+        0 10px 10px rgba(6, 182, 212, 0.3), 
+        0 0 4px rgba(162, 89, 255, 0.15);
+    
+    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.5s ease;
+    z-index: 10;
 }
 
-.foto-perfil {
-    width: 160px;
-    height: 160px;
-    border-radius: 50%; /* La hace totalmente redonda */
-    object-fit: cover; /* Asegura que la foto no se deforme */
-    border: 3px solid #34d399; /* Borde verde esmeralda */
-    box-shadow: 0 0 25px rgba(52, 211, 153, 0.3); /* Brillo difuminado */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* Efecto al pasar el ratón: el vídeo levita y brilla más */
+.contenedor-video-hero:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 
+        0 10px 10px rgba(6, 182, 212, 0.4), 
+        0 0 10px rgba(162, 89, 255, 0.25);
 }
 
-/* Efecto al pasar el ratón por la foto */
-.foto-perfil:hover {
-    transform: scale(1.05); /* Crece un poquito */
-    box-shadow: 0 0 35px rgba(52, 211, 153, 0.6); /* Brilla más */
+/* Ajuste perfecto del vídeo */
+.video-avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* El degradado inferior: hace que el vídeo se funda con el color oscuro de tu web */
+.overlay-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Va de transparente arriba a casi negro (tu color #020617) abajo */
+    background: linear-gradient(to bottom, transparent 60%, rgba(2, 6, 23, 0.9)100%);
+    pointer-events: none; /* Para no bloquear si el usuario hace clic */
 }
 
 /* 2. Botones de Redes Sociales */
@@ -1120,4 +1150,176 @@ h1 {
     font-size: 0.95rem;
     line-height: 1.7;
     margin-bottom: 0;
+}
+
+/* Botón para enlaces dentro de la trayectoria (cartas, certificados...) */
+.btn-timeline {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1.2rem;
+    padding: 0.5rem 1rem;
+    background-color: rgba(52, 211, 153, 0.1);
+    color: #34d399;
+    border: 1px solid rgba(52, 211, 153, 0.3);
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-timeline:hover {
+    background-color: #34d399; /* Se rellena de verde */
+    color: #020617; /* Texto oscuro para contrastar */
+    box-shadow: 0 0 15px rgba(52, 211, 153, 0.4); /* Resplandor */
+    transform: translateY(-2px); /* Salto suave */
+}
+
+/*------------------------------------------ SECCIÓN CONTACTO -------------------------------------- */
+.seccion-contacto {
+    padding: 6rem 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 10;
+}
+
+/* Tarjeta principal que envuelve todo */
+.tarjeta-contacto {
+    background: rgba(15, 23, 42, 0.4);
+    border: 1px solid rgba(52, 211, 153, 0.2);
+    border-radius: 24px;
+    padding: 3rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+/* En PC, dividimos en 2 columnas */
+@media (min-width: 768px) {
+    .tarjeta-contacto {
+        grid-template-columns: 1fr 1.2fr;
+        gap: 4rem;
+    }
+}
+
+/* -- Textos de la izquierda -- */
+.info-contacto h3 {
+    font-size: 2rem;
+    color: #f8fafc;
+    margin-bottom: 1rem;
+}
+
+.info-contacto p {
+    color: #94a3b8;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+}
+
+.enlaces-directos {
+    display: flex;
+    flex-direction: row; /* Cambiado a fila para que estén uno al lado del otro */
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.enlace-contacto {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 55px;  /* Ancho fijo para formar una caja perfecta */
+    height: 55px; /* Alto fijo */
+    color: #cbd5e1;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Transición más suave */
+    border-radius: 14px; /* Bordes redondeados elegantes */
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.enlace-contacto:hover {
+    color: #34d399; /* El icono se vuelve verde */
+    background: rgba(52, 211, 153, 0.1);
+    border-color: rgba(52, 211, 153, 0.3);
+    transform: translateY(-5px); /* Ahora el salto es hacia arriba, no hacia la derecha */
+    box-shadow: 0 10px 20px -5px rgba(52, 211, 153, 0.3); /* Resplandor inferior */
+}
+
+/* -- Formulario de la derecha -- */
+.formulario-contacto {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.grupo-input-contacto {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.grupo-input-contacto label {
+    color: #cbd5e1;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.grupo-input-contacto input,
+.grupo-input-contacto textarea {
+    background-color: rgba(2, 6, 23, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 0.8rem 1rem;
+    color: #ffffff;
+    font-family: inherit;
+    transition: all 0.3s ease;
+}
+
+.grupo-input-contacto input:focus,
+.grupo-input-contacto textarea:focus {
+    outline: none;
+    border-color: #34d399;
+    box-shadow: 0 0 10px rgba(52, 211, 153, 0.2);
+    background-color: rgba(2, 6, 23, 0.9);
+}
+
+.boton-enviar-contacto {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    margin-top: 0.5rem;
+    background-color: #34d399;
+    color: #020617;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.boton-enviar-contacto:hover {
+    background-color: #10b981;
+    box-shadow: 0 0 20px rgba(52, 211, 153, 0.4);
+    transform: translateY(-2px);
+}
+
+/* ------------------------------------------ FOOTER -------------------------------------- */
+.pie-pagina {
+    text-align: center;
+    padding: 2rem;
+    margin-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    position: relative;
+    z-index: 10;
+}
+
+.pie-pagina p {
+    color: #64748b;
+    font-size: 0.9rem;
 }

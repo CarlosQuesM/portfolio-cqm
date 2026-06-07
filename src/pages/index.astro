@@ -4,8 +4,18 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout title="Carlosdev">
 	<main class="contenedor-central">
-		<div class="contenedor-foto">
-			<img src="/src/assets/portf.jpeg" alt="Carlosdev" class="foto-perfil">
+		<!-- Vídeo Hero Espectacular -->
+		<div class="contenedor-video-hero">
+			<video 
+				src="/src/assets/avatar.mp4" 
+				class="video-avatar" 
+				autoplay 
+				loop 
+				muted 
+				playsinline>
+			</video>
+			<!-- Capa mágica para oscurecer un poco la base del vídeo -->
+			<div class="overlay-video"></div>
 		</div>
 
 		<h1>
@@ -62,7 +72,8 @@ import Layout from '../layouts/Layout.astro';
 					Mi viaje en la programación empezó con la curiosidad de saber cómo funcionaba la web por dentro. Hoy en día, disfruto construyendo proyectos escalables y enfrentándome a retos que me hagan salir de mi zona de confort.
 				</p>
 				<p>
-					Cuando no estoy escribiendo código, probablemente esté haciendo cualquier deporte o dando un paseo buscando el mejor café.
+					Cuando no estoy programando...<br>
+					Estoy praticando algún deporte, explorando nuevas tecnologías o simplemente disfrutando de una buena película.
 				</p>
 			</div>
 
@@ -278,7 +289,7 @@ import Layout from '../layouts/Layout.astro';
 
 Me encargué del frontend completo. Lo construí con Angular 17+, componentes standalone y TypeScript, sin usar ningún framework CSS externo — todo el diseño es custom, con tema oscuro y un acento en rojo que le da personalidad. Para la autenticación usé JWT, con un interceptor que añade el token automáticamente en cada petición al backend.
 
-El backend lo hicimos con Java + Spring Boot, exponiendo una API REST, y la base de datos es PostgreSQL. Implementamos tres roles — Member, Coach y Admin — cada uno con su propio panel y permisos controlados por guards.
+Implementamos tres roles — Member, Coach y Admin — cada uno con su propio panel y permisos controlados por guards.
 
 Las funcionalidades que más me gustaron desarrollar fueron el feed social con likes y comentarios, el sistema de puntos y ranking, y el panel de administración de clases con plantillas semanales.</p>
 					<button class="btn-leer-mas">Leer más...</button>
@@ -330,7 +341,7 @@ Las funcionalidades que más me gustaron desarrollar fueron el feed social con l
 				
 				<div class="contenido-card">
 					<h3>Academia Criminalística</h3>
-					<p>Durante mi periodo de prácticas ayude a desarollar la página de Academia Criminalística. </p>
+					<p>Página web oficial de Academia Criminalística, la cual aporté mi experiencia en desarrollo web durante el periodo de prácticas.</p>
 					<div class="enlaces-proyecto">
 						<a href="https://academiacriminalistica.com/" target="_blank" class="btn-proyecto primario">
 							<svg  xmlns="http://www.w3.org/2000/svg" width="24" height="24"  fill="currentColor" viewBox="0 0 24 24" >
@@ -372,7 +383,7 @@ Las funcionalidades que más me gustaron desarrollar fueron el feed social con l
 				
 				<div class="contenido-card">
 					<h3>PostGradoFP</h3>
-					<p>Plataforma completa de comercio electrónico con carrito de compras, pasarela de pagos integrada y panel de administración.</p>
+					<p>Página web oficial de PostgradoFP, la cual aporté mi experiencia en desarrollo web durante el periodo de prácticas.</p>
 					
 					<div class="enlaces-proyecto">
 						<a href="https://postgradofp.com/" target="_blank" class="btn-proyecto primario">
@@ -415,7 +426,7 @@ Las funcionalidades que más me gustaron desarrollar fueron el feed social con l
 					</div>
 				<div class="contenido-card">
 					<h3>Centro Internacional Postgrado</h3>
-					<p>Plataforma completa de comercio electrónico con carrito de compras, pasarela de pagos integrada y panel de administración.</p>
+					<p>Página web oficial de Centro Internacional Postgrado, la cual aporté mi experiencia en desarrollo web durante el periodo de prácticas.</p>
 					
 					<div class="enlaces-proyecto">
 						<a href="https://centrointernacionalpostgrado.com/" target="_blank" class="btn-proyecto primario">
@@ -459,7 +470,7 @@ Las funcionalidades que más me gustaron desarrollar fueron el feed social con l
 					</div>
 				<div class="contenido-card">
 					<h3>Instituto IUDI</h3>
-					<p>Plataforma completa de comercio electrónico con carrito de compras, pasarela de pagos integrada y panel de administración.</p>
+					<p>Página web oficial de Instituto IUDI, la cual aporté mi experiencia en desarrollo web durante el periodo de prácticas.</p>
 					
 					<div class="enlaces-proyecto">
 						<a href="https://institutoiudi.com/" target="_blank" class="btn-proyecto primario">
@@ -504,8 +515,8 @@ Las funcionalidades que más me gustaron desarrollar fueron el feed social con l
 				
 				<div class="contenido-card">
 					<h3>Traductor Carlos</h3>
-					<p> Recreación del mítico traductor de Google.</p>
-					<p>Uno de los primeros proyectos realizados.</p>				
+					<p> Recreación del mítico traductor de Google.<br>
+					Uno de los primeros proyectos que realicé para ir entendiendo poco a poco el funcionamiento de una aplicación web.</p>				
 					<div class="enlaces-proyecto">
 						<a href="https://github.com/CarlosQuesM/carlos-translate" target="_blank" class="btn-proyecto fantasma">
 							<svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
@@ -559,10 +570,29 @@ Las funcionalidades que más me gustaron desarrollar fueron el feed social con l
 					<div class="timeline-item">
 						<div class="timeline-punto"></div>
 						<div class="timeline-contenido">
-							<span class="timeline-fecha">2022 - 2023 (Prácticas)</span>
+							<span class="timeline-fecha">01/2026 - 06/2026 (Prácticas)</span>
 							<h4>Desarrollador Web Junior</h4>
-							<h5 class="timeline-empresa">Academia Criminalística / IUDI</h5>
+							<h5 class="timeline-empresa">ACEO Internacional Business</h5>
 							<p>Creación y mantenimiento de plataformas corporativas. Desarrollo de temas personalizados en WordPress, optimización de interfaces y colaboración en el despliegue de sitios web reales para clientes.</p>
+						<a href="/carta-recomendacion.pdf" target="_blank" class="btn-timeline">
+								<svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+									<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+									<polyline points="14 2 14 8 20 8"></polyline>
+									<line x1="16" y1="13" x2="8" y2="13"></line>
+									<line x1="16" y1="17" x2="8" y2="17"></line>
+									<polyline points="10 9 9 9 8 9"></polyline>
+								</svg>
+								Carta de Recomendación
+							</a>
+						</div>
+					</div>
+					<div class="timeline-item">
+						<div class="timeline-punto"></div>
+						<div class="timeline-contenido">
+							<span class="timeline-fecha">2018-Actual</span>
+							<h4>Fuera de este mundillo...</h4>
+							<h5 class="timeline-empresa">Seguridad Privada</h5>
+							<p>Responsabilidad en la supervisión de accesos, gestión de incidencias y atención al cliente. Trabajo en equipo, toma de decisiones y resolución de problemas bajo presión.</p>
 						</div>
 					</div>
 					</div>
@@ -570,7 +600,7 @@ Las funcionalidades que más me gustaron desarrollar fueron el feed social con l
 
 			<div class="columna-timeline">
 				<h3 class="titulo-columna">
-				<svg  xmlns="http://www.w3.org/2000/svg" width="24" height="24"  
+				<svg  xmlns="http://www.w3.org/2000/svg" width="28" height="28"  
 				fill="currentColor" viewBox="0 0 24 24" >
 				<path d="m21.45 8.61-9-4.5a1 1 0 0 0-.89 0l-6 3-3 1.5-1 .5a1 1 0 0 0-.55.89v6h2v-5.38l2 1v3.83c0 2.06 3.12 4.56 7 4.56s7-2.49 7-4.56v-3.83l2.45-1.22c.34-.17.55-.52.55-.89s-.21-.72-.55-.89Zm-15 .29L12 6.12l6.76 3.38L12 12.88 5.24 9.5l1.21-.61ZM17 15.45c0 .76-2.11 2.56-5 2.56s-5-1.79-5-2.56v-2.83l4.55 2.28c.14.07.29.11.45.11s.31-.04.45-.11L17 12.62z"></path>
 				</svg>
@@ -581,9 +611,9 @@ Las funcionalidades que más me gustaron desarrollar fueron el feed social con l
 					<div class="timeline-item">
 						<div class="timeline-punto"></div>
 						<div class="timeline-contenido">
-							<span class="timeline-fecha">2020 - 2022</span>
+							<span class="timeline-fecha">2023 - 2026</span>
 							<h4>CFGS Desarrollo de Aplicaciones Web</h4>
-							<h5 class="timeline-empresa">Nombre de tu Instituto</h5>
+							<h5 class="timeline-empresa">La Salle FP Online</h5>
 							<p>Especialización en desarrollo Frontend y Backend. Creación de aplicaciones escalables, gestión de bases de datos relacionales y no relacionales, y diseño de interfaces de usuario.</p>
 						</div>
 					</div>
@@ -593,6 +623,51 @@ Las funcionalidades que más me gustaron desarrollar fueron el feed social con l
 
 		</div>
 	</section>
+
+	<section id="contacto" class="seccion-contacto">
+		<h2 class="titulo-seccion">Contacto</h2>
+		
+		<div class="tarjeta-contacto">
+			<div class="info-contacto">
+				<h3>¿Hablamos?</h3>
+				<p>Estoy siempre abierto a nuevas oportunidades, colaboraciones o simplemente a charlar sobre tecnología. ¡No dudes en escribirme!</p>
+				
+				<div class="enlaces-directos">
+					<a href="mailto:carlosquesadamesonero@gmail.com" class="enlace-contacto">
+						<svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+					</a>
+					<a href="https://linkedin.com/in/carlosquesadames/" target="_blank" class="enlace-contacto">
+						<svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+					</a>
+				</div>
+			</div>
+
+			<form class="formulario-contacto" action="https://formspree.io/f/meedyblk" method="POST">
+				<input type="hidden" name="Origen" value="Formulario de Contacto Principal">
+				<div class="grupo-input-contacto">
+					<label for="nombre">Nombre</label>
+					<input type="text" id="nombre" name="nombre" placeholder="Nombre / Empresa" required />
+				</div>
+				<div class="grupo-input-contacto">
+					<label for="email">Correo Electrónico</label>
+					<input type="email" id="email" name="email" placeholder="ejemplo@email.com" required />
+				</div>
+				<div class="grupo-input-contacto">
+					<label for="mensaje">Mensaje</label>
+					<textarea id="mensaje" name="message" rows="4" placeholder="¿Puedo ayudarle?" required></textarea>
+				</div>
+				
+				<button type="submit" class="boton-enviar-contacto">
+					Enviar Mensaje
+					<svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+				</button>
+			</form>
+		</div>
+	</section>
+
+	<footer class="pie-pagina">
+		<p>© 2026 Carlos Quesada. Algún que otro derecho <span class="texto-verde">reservado</span> y mucho café.</p>
+	</footer>
 
 </Layout>
 
@@ -628,7 +703,7 @@ Las funcionalidades que más me gustaron desarrollar fueron el feed social con l
 	const palabras = [
 		"Frontend Developer.",
 		"Desarrollador Web.",
-		"Escribiendo código en TypeScript.",
+		"Escribiendo código.",
 		"Creador de Soluciones."
 	];
 
