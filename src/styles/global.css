@@ -525,28 +525,43 @@ h1 {
     color: #94a3b8;
     padding: 0.6rem;
     border-radius: 50px;
-    transition: all 0.3s ease;
+    transition: all 0.18s ease;
     overflow: hidden; 
 }
 
-.nav-item:hover {
+.nav-item:focus-visible {
     background-color: rgba(52, 211, 153, 0.15); 
     color: #34d399; 
+    outline: 2px solid #34d399;
+    outline-offset: 2px;
 }
 
 .nav-text {
     max-width: 0; 
     opacity: 0; 
     white-space: nowrap; 
-    transition: all 0.4s ease; 
+    transition: all 0.18s ease; 
     font-size: 0.9rem;
     font-weight: 500;
 }
 
-.nav-item:hover .nav-text {
+.nav-item:focus-visible .nav-text {
     max-width: 100px; 
     opacity: 1; 
     margin-left: 0.5rem; 
+}
+
+@media (min-width: 768px) and (hover: hover) and (pointer: fine) {
+    .nav-item:hover {
+        background-color: rgba(52, 211, 153, 0.15);
+        color: #34d399;
+    }
+
+    .nav-item:hover .nav-text {
+        max-width: 100px;
+        opacity: 1;
+        margin-left: 0.5rem;
+    }
 }
 
 .nav-icon {
