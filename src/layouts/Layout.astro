@@ -1,0 +1,51 @@
+---
+import '../styles/global.css';
+import Navbar from '../components/Navbar.astro';
+
+interface Props {
+	title: string;
+}
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
+		<title>{title}</title>
+	</head>
+	
+	<body>
+		<div class="cielo-estrellado">
+			<div class="orb orb-1"></div>
+			<div class="orb orb-2"></div>
+			<div class="orb orb-3"></div>
+			<div class="estrella-fugaz"></div>
+			<div class="estrella-fugaz"></div>
+			<div class="estrella-fugaz"></div>
+			<div class="estrella-fugaz"></div>
+			<div class="estrella-fugaz"></div>
+			<div class="estrella-fugaz"></div>
+			<div class="estrella-fugaz"></div>
+			<div class="estrella-fugaz"></div>
+		</div>
+		<div id="efecto-luz"></div>
+		<Navbar />
+		<slot />
+
+		<script>
+			const luz = document.getElementById('efecto-luz');
+			window.addEventListener('mousemove', (event) => {
+				const x = event.clientX;
+				const y = event.clientY;
+				if (luz) {
+					luz.style.background = `radial-gradient(100px circle at ${x}px ${y}px, rgba(52, 211, 153, 0.15), transparent 80%)`;
+				}
+			});
+		</script>
+	</body>
+</html>
