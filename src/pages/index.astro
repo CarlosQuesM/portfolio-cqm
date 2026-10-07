@@ -1,44 +1,47 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import avatarfoto from "../assets/avatarfoto.png"; 
+import rmTracker from "../assets/rm-tracker.png";
+import salle from "../assets/sallegym.png";
+import academia from "../assets/academia.png";
+import postg from "../assets/postgradofp.png";
+import cip from "../assets/cip.png";
+import iudi from "../assets/iudi.png";
+import translate from "../assets/translate.png";
 ---
 
 <Layout title="Carlosdev">
 	<main class="contenedor-central">
-		<!-- Vídeo Hero Espectacular -->
-		<div class="contenedor-video-hero">
-			<video 
-				src="/src/assets/avatar.mp4" 
-				class="video-avatar" 
-				autoplay 
-				loop 
-				muted 
-				playsinline>
-			</video>
-			<!-- Capa mágica para oscurecer un poco la base del vídeo -->
-			<div class="overlay-video"></div>
-		</div>
-
-		<h1>
-			¡Hola, soy <span class="texto-verde">Carlos</span>!
-		</h1>
+	
+	<div class="hero-asimetrico">
 		
-		<div class="texto-maquina">
-			<span id="texto-animado"></span><span class="cursor"></span>
-		</div>
-
-		<div class="contenedor-redes">
+		<!-- Columna Izquierda -->
+		<div class="columna-nombre">
+			<h1 class="titulo-gigante">
+				CARLOS<br>
+				<span class="texto-verde">QUESADA</span><br>
+				MESONERO
 			
-			<a href="https://github.com/CarlosQuesM" target="_blank" class="boton-red" aria-label="GitHub">
-				<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-			</a>
-
-			<a href="https://linkedin.com/in/carlosquesadames/" target="_blank" class="boton-red" aria-label="LinkedIn">
-				<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-			</a>
-
+			</h1>
 		</div>
 
-		<div style="margin-top: 2rem;">
+		<!-- Columna Derecha -->
+		<div class="columna-info">
+			
+			<div class="texto-maquina">
+				<span id="texto-animado"></span><span class="cursor"></span>
+			</div>
+
+			<div class="contenedor-redes redes-hero">
+				<a href="https://github.com/CarlosQuesM" target="_blank" class="boton-red" aria-label="GitHub">
+					<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+				</a>
+				<a href="https://linkedin.com/in/carlosquesadames/" target="_blank" class="boton-red" aria-label="LinkedIn">
+					<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+				</a>
+			</div>
+
 			<a href="/solicitar-cv" class="boton-cv">
 				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 					<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
@@ -48,63 +51,50 @@ import Layout from '../layouts/Layout.astro';
 				Solicitar CV
 			</a>
 		</div>
+	</div>
 
-		<a href="#sobre-mi" class="contenedor-scroll" aria-label="Bajar a sobre mí">
-			<div class="capsula-scroll">
-				<span class="guion-flotante"></span>
-			</div>
-		</a>
+	<!-- Ratón de scroll centrado abajo -->
+	<a href="#sobre-mi" class="contenedor-scroll" aria-label="Bajar a sobre mí">
+		<div class="capsula-scroll">
+			<span class="guion-flotante"></span>
+		</div>
+	</a>
 
-	</main>
+</main>
 
-	<!-- SECCIÓN: SOBRE MÍ (Diseño Superpuesto) -->
-	<section id="sobre-mi" class="seccion-sobre-mi">
-		<h1 class="titulo-sobre-mi">Sobre mi</h1>
+	<!-- SECCIÓN SOBRE MÍ  -->
+	<section id="sobre-mi" class="seccion-sobre-mi revelar">
+		<h1 class="titulo-sobre-mi">Sobre mí</h1>
 		
 		<div class="grid-sobre-mi">
 			
-			<!-- Rectángulo Izquierdo: Caja de texto -->
+			<!-- Caja de texto izq -->
 			<div class="caja-texto">
 				<p>
-					Mi nombre es Carlos, y soy un <strong>apasionado del desarrollo web</strong> enfocado en crear interfaces limpias, modernas y altamente funcionales. 
+					<strong>Me llamo Carlos</strong> y me dedico al desarrollo web, especialmente al frontend. Me gusta crear interfaces que se vean bien, pero también que sean claras y cómodas de usar.
 				</p>
 				<p>
-					Mi viaje en la programación empezó con la curiosidad de saber cómo funcionaba la web por dentro. Hoy en día, disfruto construyendo proyectos escalables y enfrentándome a retos que me hagan salir de mi zona de confort.
+					Empecé a programar por curiosidad, para entender cómo funcionaban las páginas que utilizaba. Ahora <strong>disfruto</strong> construyendo mis propios proyectos, probando ideas y resolviendo los problemas que aparecen por el camino. 
 				</p>
 				<p>
-					Cuando no estoy programando...<br>
-					Estoy praticando algún deporte, explorando nuevas tecnologías o simplemente disfrutando de una buena película.
+					Casi siempre hay un "¿y si…?" detrás de lo que hago: una idea que quiero probar, algo que no entiendo todavía o una forma distinta de resolverlo. Me gusta dejarme llevar por esa curiosidad y ver hasta dónde puedo llegar.
 				</p>
 			</div>
 
-			<!-- Rectángulo Derecho: Imágenes superpuestas -->
-			<div class="contenedor-imagenes">
-				<div id="interaccion-fotos" class="grupo-fotos" title="Haz clic para separar las fotos">
-					<!-- La foto que va al fondo (Asegúrate de tener esta imagen en tu carpeta public) -->
-					<img src="/src/assets/portf.jpeg" alt="Foto secundaria" class="foto-base foto-tres" />
+			<!-- Imágen der -->
+				<div class="contenedor-avatar">
 
-					<img src="/src/assets/img2.jpg" alt="Foto secundaria" class="foto-base foto-dos" />
-					
-					<!-- La foto principal que va delante -->
-					<img src="/src/assets/img1.jpeg" alt="Foto principal de Carlos" class="foto-base foto-uno" />
+					<Image src={avatarfoto} alt="Sobremi." class="foto-avatar" />
+
+					<!-- <img src="/src/assets/avatarfoto.jpg" alt="Me" class="foto-avatar" /> -->
 				</div>
 			</div>
  
 		</div>
 	</section>
 
-	<script>
-		const contenedorFotos = document.getElementById('interaccion-fotos');
-
-		if(contenedorFotos) {
-			contenedorFotos.addEventListener('click', function() {
-				this.classList.toggle('separadas');
-			});
-		}
-
-	</script>
-
-	<section id="habilidades" class="seccion-habilidades">
+	<!--  Habilidades -->
+	<section id="habilidades" class="seccion-habilidades revelar">
 		<h2>Habilidades</h2>
 		
 		<div class="grid-tarjetas">
@@ -163,7 +153,7 @@ import Layout from '../layouts/Layout.astro';
 							</svg>
 						<span>Java</span>
 					</div>
-					
+
 					<div class="tecnologia">
 						<svg fill="#777BB4" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>PHP</title><path d="M7.01 10.207h-.944l-.515 2.648h.838c.556 0 .97-.105 1.242-.314.272-.21.455-.559.55-1.049.092-.47.05-.802-.124-.995-.175-.193-.523-.29-1.047-.29zM12 5.688C5.373 5.688 0 8.514 0 12s5.373 6.313 12 6.313S24 15.486 24 12c0-3.486-5.373-6.312-12-6.312zm-3.26 7.451c-.261.25-.575.438-.917.551-.336.108-.765.164-1.285.164H5.357l-.327 1.681H3.652l1.23-6.326h2.65c.797 0 1.378.209 1.744.628.366.418.476 1.002.33 1.752a2.836 2.836 0 0 1-.305.847c-.143.255-.33.49-.561.703zm4.024.715l.543-2.799c.063-.318.039-.536-.068-.651-.107-.116-.336-.174-.687-.174H11.46l-.704 3.625H9.388l1.23-6.327h1.367l-.327 1.682h1.218c.767 0 1.295.134 1.586.401s.378.7.263 1.299l-.572 2.944h-1.389zm7.597-2.265a2.782 2.782 0 0 1-.305.847c-.143.255-.33.49-.561.703a2.44 2.44 0 0 1-.917.551c-.336.108-.765.164-1.286.164h-1.18l-.327 1.682h-1.378l1.23-6.326h2.649c.797 0 1.378.209 1.744.628.366.417.477 1.001.331 1.751zM17.766 10.207h-.943l-.516 2.648h.838c.557 0 .971-.105 1.242-.314.272-.21.455-.559.551-1.049.092-.47.049-.802-.125-.995s-.524-.29-1.047-.29z"/></svg>
 						<span>PHP</span>
@@ -253,7 +243,7 @@ import Layout from '../layouts/Layout.astro';
 						<span>Visual Studio Code</span>
 					</div>
 					<div class="tecnologia">
-						<svg version="1.1" id="google_analytics__Layer_1" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 2195.9 2430.9" xml:space="preserve"><g><path d="M2195.9,2126.7c0.9,166.9-133.7,302.8-300.5,303.7c-12.4,0.1-24.9-0.6-37.2-2.1 c-154.8-22.9-268.2-157.6-264.4-314V316.1c-3.7-156.6,110-291.3,264.9-314c165.7-19.4,315.8,99.2,335.2,264.9 c1.4,12.2,2.1,24.4,2,36.7L2195.9,2126.7z"/><path d="M301.1,1828.7c166.3,0,301.1,134.8,301.1,301.1c0,166.3-134.8,301.1-301.1,301.1 C134.8,2430.9,0,2296.1,0,2129.8C0,1963.5,134.8,1828.7,301.1,1828.7z M1093.3,916.2c-167.1,9.2-296.7,149.3-292.8,316.6v808.7 c0,219.5,96.6,352.7,238.1,381.1c163.3,33.1,322.4-72.4,355.5-235.7c4.1-20,6.1-40.3,6-60.7v-907.4 c0.3-166.9-134.7-302.4-301.6-302.7C1096.8,916.1,1095,916.1,1093.3,916.2z"/></g></svg>	
+						<svg version="1.1" id="google_analytics__Layer_1" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 2195.9 2430.9" xml:space="preserve"><g><path d="M2195.9,2126.7c0.9,166.9-133.7,302.8-300.5,303.7c-12.4,0.1-24.9-0.6-37.2-2.1 c-154.8-22.9-268.2-157.6-264.4-314V316.1c-3.7-156.6,110-291.3,264.9-314c165.7-19.4,315.8,99.2,335.2,264.9 c1.4,12.2,2.1,24.4,2,36.7L2195.9,2126.7z"/><path d="M301.1,1828.7c166.3,0,301.1,134.8,301.1,301.1c0,166.3-134.8,301.1-301.1,301.1 C134.8,2430.9,0,2296.1,0,2129.8C0,1963.5,134.8,1828.7,301.1,1828.7z M1093.3,916.2c-167.1,9.2-296.7,149.3-292.8,316.6v808.7 c0,219.5,96.6,352.7,238.1,381.1c163.3,33.1,322.4-72.4,355.5-235.7c4.1-20,6.1-40.3,6-60.7v-907.4 c0.3-166.9-134.7-302.4-301.6-302.7C1096.8,916.1,1095,916.1,1093.3,916.2z"/></g></svg>
 						<span>Google Analitics</span>
 					</div>
 					<div class="tecnologia">
@@ -270,38 +260,78 @@ import Layout from '../layouts/Layout.astro';
 		</div>
 	</section>
 
-	<!-- NUEVA SECCIÓN: PROYECTOS -->
-	<section id="proyectos" class="seccion-proyectos">
+	<!--  PROYECTOS -->
+	<section id="proyectos" class="seccion-proyectos revelar">
 		<h2 class="titulo-seccion">Proyectos</h2>
 		
 		<div class="proyectos-grid">
 
 			<div class="proyecto-card">
 				<div class="imagen-contenedor">
-					<img src="/src/assets/sallegym.png" alt="SalleGym">
+					<Image src={rmTracker} alt="RM Tracker" />
+				</div>
+				
+				<div class="contenido-card">
+					<h3>RM Tracker</h3>
+					<p>Es una solución a medida desarrollada para optimizar la programación en los entrenamientos de fuerza. Nace de la necesidad personal de calcular rápidamente las cargas de trabajo sin tener que pelear con celdas diminutas en el móvil entre series.</p>
+					<div class="enlaces-proyecto">
+						<a href="https://rm-tracker-n84l.onrender.com/" target="_blank" class="btn-proyecto primario">
+							<svg  xmlns="http://www.w3.org/2000/svg" width="24" height="24"  fill="currentColor" viewBox="0 0 24 24" >
+							<path d="M3 5v6h2V5h14v14h-6v2h6c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2"></path><path d="m6.71 18.71 5.5-5.5L15 16V9H8l2.79 2.79-5.5 5.5z"></path>
+							</svg>
+							Ver sitio web
+						</a>
+					</div>
+
+					<div class="tech-capsulas">
+						<span class="capsula">
+						<svg preserveAspectRatio="xMidYMid" viewBox="0 0 256 264"><path d="m255.9 59.6.1 1.1v56.6c0 1.4-.8 2.8-2 3.5l-47.6 27.4v54.2c0 1.4-.7 2.8-2 3.5l-99.1 57-.7.4-.3.1c-.7.2-1.4.2-2.1 0l-.4-.1-.6-.3L2 206c-1.3-.8-2.1-2.2-2.1-3.6V32.7l.1-1.1.2-.4.3-.6.2-.4.4-.5.4-.3c.2 0 .3-.2.5-.3L51.6.6c1.3-.8 2.9-.8 4.1 0L105.3 29c.2 0 .3.2.4.3l.5.3c0 .2.2.4.3.5l.3.4.3.6.1.4.2 1v106l41.2-23.7V60.7c0-.4 0-.7.2-1l.1-.4.3-.7.3-.3.3-.5.5-.3.4-.4 49.6-28.5c1.2-.7 2.8-.7 4 0L254 57l.5.4.4.3.4.5.2.3c.2.2.2.5.3.7l.2.3Zm-8.2 55.3v-47l-17.3 10-24 13.7v47l41.3-23.7Zm-49.5 85v-47l-23.6 13.5-67.2 38.4v47.5l90.8-52.3ZM8.2 39.9V200l90.9 52.3v-47.5l-47.5-26.9-.4-.4c-.2 0-.3-.1-.4-.3l-.4-.4-.3-.4-.2-.5-.2-.5v-.6l-.2-.5V63.6L25.6 49.8l-17.3-10Zm45.5-31L12.4 32.8l41.3 23.7 41.2-23.7L53.7 8.9ZM75 157.3l24-13.8V39.8l-17.3 10-24 13.8v103.6l17.3-10ZM202.3 36.9 161 60.7l41.3 23.8 41.3-23.8-41.3-23.8Zm-4.1 54.7-24-13.8-17.3-10v47l24 13.9 17.3 10v-47Zm-95 106 60.6-34.5 30.2-17.3-41.2-23.8-47.5 27.4L62 174.3l41.2 23.3Z" fill="#FF2D20"/></svg>	Laravel
+						</span>
+						
+						<span class="capsula">
+							<svg fill="none" viewBox="0 0 54 33"><g clip-path="url(#tailwindcss__a)"><path fill="#38bdf8" fill-rule="evenodd" d="M27 0c-7.2 0-11.7 3.6-13.5 10.8 2.7-3.6 5.85-4.95 9.45-4.05 2.054.513 3.522 2.004 5.147 3.653C30.744 13.09 33.808 16.2 40.5 16.2c7.2 0 11.7-3.6 13.5-10.8-2.7 3.6-5.85 4.95-9.45 4.05-2.054-.513-3.522-2.004-5.147-3.653C36.756 3.11 33.692 0 27 0zM13.5 16.2C6.3 16.2 1.8 19.8 0 27c2.7-3.6 5.85-4.95 9.45-4.05 2.054.514 3.522 2.004 5.147 3.653C17.244 29.29 20.308 32.4 27 32.4c7.2 0 11.7-3.6 13.5-10.8-2.7 3.6-5.85 4.95-9.45 4.05-2.054-.513-3.522-2.004-5.147-3.653C23.256 19.31 20.192 16.2 13.5 16.2z" clip-rule="evenodd"/></g><defs><clipPath id="tailwindcss__a"><path fill="#fff" d="M0 0h54v32.4H0z"/></clipPath></defs></svg>
+							Tailwind CSS
+						</span>
+						
+						<span class="capsula">
+						<svg fill="#777BB4" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>PHP</title><path d="M7.01 10.207h-.944l-.515 2.648h.838c.556 0 .97-.105 1.242-.314.272-.21.455-.559.55-1.049.092-.47.05-.802-.124-.995-.175-.193-.523-.29-1.047-.29zM12 5.688C5.373 5.688 0 8.514 0 12s5.373 6.313 12 6.313S24 15.486 24 12c0-3.486-5.373-6.312-12-6.312zm-3.26 7.451c-.261.25-.575.438-.917.551-.336.108-.765.164-1.285.164H5.357l-.327 1.681H3.652l1.23-6.326h2.65c.797 0 1.378.209 1.744.628.366.418.476 1.002.33 1.752a2.836 2.836 0 0 1-.305.847c-.143.255-.33.49-.561.703zm4.024.715l.543-2.799c.063-.318.039-.536-.068-.651-.107-.116-.336-.174-.687-.174H11.46l-.704 3.625H9.388l1.23-6.327h1.367l-.327 1.682h1.218c.767 0 1.295.134 1.586.401s.378.7.263 1.299l-.572 2.944h-1.389zm7.597-2.265a2.782 2.782 0 0 1-.305.847c-.143.255-.33.49-.561.703a2.44 2.44 0 0 1-.917.551c-.336.108-.765.164-1.286.164h-1.18l-.327 1.682h-1.378l1.23-6.326h2.649c.797 0 1.378.209 1.744.628.366.417.477 1.001.331 1.751zM17.766 10.207h-.943l-.516 2.648h.838c.557 0 .971-.105 1.242-.314.272-.21.455-.559.551-1.049.092-.47.049-.802-.125-.995s-.524-.29-1.047-.29z"/></svg>
+							PHP
+						</span>
+
+						<span class="capsula">
+							<svg viewBox="0 0 24 24" fill="#008fe2"><path d="M13.98 11.08h2.12a.19.19 0 0 0 .19-.19V9.01a.19.19 0 0 0-.19-.19h-2.12a.18.18 0 0 0-.18.18v1.9c0 .1.08.18.18.18m-2.95-5.43h2.12a.19.19 0 0 0 .18-.19V3.57a.19.19 0 0 0-.18-.18h-2.12a.18.18 0 0 0-.19.18v1.9c0 .1.09.18.19.18m0 2.71h2.12a.19.19 0 0 0 .18-.18V6.29a.19.19 0 0 0-.18-.18h-2.12a.18.18 0 0 0-.19.18v1.89c0 .1.09.18.19.18m-2.93 0h2.12a.19.19 0 0 0 .18-.18V6.29a.18.18 0 0 0-.18-.18H8.1a.18.18 0 0 0-.18.18v1.89c0 .1.08.18.18.18m-2.96 0h2.11a.19.19 0 0 0 .19-.18V6.29a.18.18 0 0 0-.19-.18H5.14a.19.19 0 0 0-.19.18v1.89c0 .1.08.18.19.18m5.89 2.72h2.12a.19.19 0 0 0 .18-.19V9.01a.19.19 0 0 0-.18-.19h-2.12a.18.18 0 0 0-.19.18v1.9c0 .1.09.18.19.18m-2.93 0h2.12a.18.18 0 0 0 .18-.19V9.01a.18.18 0 0 0-.18-.19H8.1a.18.18 0 0 0-.18.18v1.9c0 .1.08.18.18.18m-2.96 0h2.11a.18.18 0 0 0 .19-.19V9.01a.18.18 0 0 0-.18-.19H5.14a.19.19 0 0 0-.19.19v1.88c0 .1.08.19.19.19m-2.92 0h2.12a.18.18 0 0 0 .18-.19V9.01a.18.18 0 0 0-.18-.19H2.22a.18.18 0 0 0-.19.18v1.9c0 .1.08.18.19.18m21.54-1.19c-.06-.05-.67-.51-1.95-.51-.34 0-.68.03-1.01.09a3.77 3.77 0 0 0-1.72-2.57l-.34-.2-.23.33a4.6 4.6 0 0 0-.6 1.43c-.24.97-.1 1.88.4 2.66a4.7 4.7 0 0 1-1.75.42H.76a.75.75 0 0 0-.76.75 11.38 11.38 0 0 0 .7 4.06 6.03 6.03 0 0 0 2.4 3.12c1.18.73 3.1 1.14 5.28 1.14.98 0 1.96-.08 2.93-.26a12.25 12.25 0 0 0 3.82-1.4 10.5 10.5 0 0 0 2.61-2.13c1.25-1.42 2-3 2.55-4.4h.23c1.37 0 2.21-.55 2.68-1 .3-.3.55-.66.7-1.06l.1-.28Z"/></svg>
+							Docker
+						</span>
+					</div>
+				</div>
+			</div>
+
+			<div class="proyecto-card">
+				<div class="imagen-contenedor">
+					<Image src={salle} alt="Salle-Gym" />
 				</div>
 				
 				<div class="contenido-card">
 					<h3>Salle-Gym</h3>
 					<div class="contenedor-descripcion">
 					<p class="texto-recortado">
-						SALLE-GYM es el proyecto que desarrollé como Trabajo de Fin de Grado junto a mi equipo. La idea era construir una plataforma real de gestión de gimnasio, con todo lo que eso implica: distintos tipos de usuarios, reservas, contenido social y administración.
+						SALLE-GYM es el proyecto que desarrollé como TFG junto a mi equipo. La idea era construir una plataforma real de gestión de gimnasio, con todo lo que eso implica: tipos de usuarios, reservas, contenido social y administración.<br>
 
-Me encargué del frontend completo. Lo construí con Angular 17+, componentes standalone y TypeScript, sin usar ningún framework CSS externo — todo el diseño es custom, con tema oscuro y un acento en rojo que le da personalidad. Para la autenticación usé JWT, con un interceptor que añade el token automáticamente en cada petición al backend.
+Me encargué del frontend completo. Lo construí con Angular 17+, componentes standalone y TypeScript + CSS Para la autenticación usé JWT, con un interceptor que añade el token automáticamente en cada petición al backend.<br>
 
-Implementamos tres roles — Member, Coach y Admin — cada uno con su propio panel y permisos controlados por guards.
+Implementamos tres roles — Member, Coach y Admin ,cada uno con su propio panel y permisos controlados por guards.<br>
 
-Las funcionalidades que más me gustaron desarrollar fueron el feed social con likes y comentarios, el sistema de puntos y ranking, y el panel de administración de clases con plantillas semanales.</p>
+Las funcionalidades que más me gustaron desarrollar fueron el feed social con likes y comentarios, el sistema de puntos y ranking.</p>
 					<button class="btn-leer-mas">Leer más...</button>
 					</div>
 					<div class="enlaces-proyecto">
-						<a href="https://github.com/tu-usuario/repo" target="_blank" class="btn-proyecto fantasma">
+						<a href="https://github.com/CarlosQuesM/salle-gym.git" target="_blank" class="btn-proyecto fantasma">
 							<svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
 							Código
 						</a>
-						<a href="https://tu-demo.com" target="_blank" class="btn-proyecto primario">
+						<a href="https://carlosquesm.github.io/salle-gym/" target="_blank" class="btn-proyecto primario">
 							<svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-							Ver Demo
+							 Demo Frontend
 						</a>
 					</div>
 
@@ -336,12 +366,12 @@ Las funcionalidades que más me gustaron desarrollar fueron el feed social con l
 			
 			<div class="proyecto-card">
 				<div class="imagen-contenedor">
-					<img src="/src/assets/academia.png" alt="Academia Ciencias Criminalisticas">
+					<Image src={academia} alt="Academia Criminalística" />
 				</div>
 				
 				<div class="contenido-card">
 					<h3>Academia Criminalística</h3>
-					<p>Página web oficial de Academia Criminalística, la cual aporté mi experiencia en desarrollo web durante el periodo de prácticas.</p>
+					<p>Plataforma oficial enfocada en la captación de alumnado. Diseño de una arquitectura técnica orientada a <strong>automatizar la gestión de solicitudes</strong> y despliegue de estrategias de <strong>posicionamiento SEO y GEO local</strong> para maximizar la visibilidad orgánica por zonas clave.</p>
 					<div class="enlaces-proyecto">
 						<a href="https://academiacriminalistica.com/" target="_blank" class="btn-proyecto primario">
 							<svg  xmlns="http://www.w3.org/2000/svg" width="24" height="24"  fill="currentColor" viewBox="0 0 24 24" >
@@ -376,14 +406,57 @@ Las funcionalidades que más me gustaron desarrollar fueron el feed social con l
 					</div>
 				</div>
 			</div>
+
+			<div class="proyecto-card">
+					<div class="imagen-contenedor">
+					<Image src={iudi} alt="Instituto IUDI" />
+					</div>
+				<div class="contenido-card">
+					<h3>IUDI</h3>
+					<p>Encargado en captar <strong>tráfico</strong> orgánico mediante estrategias de <strong>SEO-GEO</strong> , apoyada por un backend que <strong>	automatiza</strong> los procesos administrativos diarios.</p>					
+					<div class="enlaces-proyecto">
+						<a href="https://institutoiudi.com/" target="_blank" class="btn-proyecto primario">
+							<svg  xmlns="http://www.w3.org/2000/svg" width="24" height="24"  fill="currentColor" viewBox="0 0 24 24" >
+							<path d="M3 5v6h2V5h14v14h-6v2h6c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2"></path><path d="m6.71 18.71 5.5-5.5L15 16V9H8l2.79 2.79-5.5 5.5z"></path>
+							</svg>
+							Ver sitio web
+						</a>
+					</div>
+
+					<div class="tech-capsulas">
+						<span class="capsula">
+						<svg viewBox="0 0 122.52 122.523"><g fill="#21759b"><path d="m8.708 61.26c0 20.802 12.089 38.779 29.619 47.298l-25.069-68.686c-2.916 6.536-4.55 13.769-4.55 21.388z"/><path d="m96.74 58.608c0-6.495-2.333-10.993-4.334-14.494-2.664-4.329-5.161-7.995-5.161-12.324 0-4.831 3.664-9.328 8.825-9.328.233 0 .454.029.681.042-9.35-8.566-21.807-13.796-35.489-13.796-18.36 0-34.513 9.42-43.91 23.688 1.233.037 2.395.063 3.382.063 5.497 0 14.006-.667 14.006-.667 2.833-.167 3.167 3.994.337 4.329 0 0-2.847.335-6.015.501l19.138 56.925 11.501-34.493-8.188-22.434c-2.83-.166-5.511-.501-5.511-.501-2.832-.166-2.5-4.496.332-4.329 0 0 8.679.667 13.843.667 5.496 0 14.006-.667 14.006-.667 2.835-.167 3.168 3.994.337 4.329 0 0-2.853.335-6.015.501l18.992 56.494 5.242-17.517c2.272-7.269 4.001-12.49 4.001-16.989z"/><path d="m62.184 65.857-15.768 45.819c4.708 1.384 9.687 2.141 14.846 2.141 6.12 0 11.989-1.058 17.452-2.979-.141-.225-.269-.464-.374-.724z"/><path d="m107.376 36.046c.226 1.674.354 3.471.354 5.404 0 5.333-.996 11.328-3.996 18.824l-16.053 46.413c15.624-9.111 26.133-26.038 26.133-45.426.001-9.137-2.333-17.729-6.438-25.215z"/><path d="m61.262 0c-33.779 0-61.262 27.481-61.262 61.26 0 33.783 27.483 61.263 61.262 61.263 33.778 0 61.265-27.48 61.265-61.263-.001-33.779-27.487-61.26-61.265-61.26zm0 119.715c-32.23 0-58.453-26.223-58.453-58.455 0-32.23 26.222-58.451 58.453-58.451 32.229 0 58.45 26.221 58.45 58.451 0 32.232-26.221 58.455-58.45 58.455z"/></g></svg>
+							WordPress
+						</span>
+						
+						<span class="capsula">
+							<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="45" height="45" viewBox="0 0 48 48">
+							<path fill="#0277BD" d="M41,5H7l3,34l14,4l14-4L41,5L41,5z"></path><path fill="#039BE5" d="M24 8L24 39.9 35.2 36.7 37.7 8z"></path><path fill="#FFF" d="M33.1 13L24 13 24 17 28.9 17 28.6 21 24 21 24 25 28.4 25 28.1 29.5 24 30.9 24 35.1 31.9 32.5 32.6 21 32.6 21z"></path><path fill="#EEE" d="M24,13v4h-8.9l-0.3-4H24z M19.4,21l0.2,4H24v-4H19.4z M19.8,27h-4l0.3,5.5l7.9,2.6v-4.2l-4.1-1.4L19.8,27z"></path>
+							</svg>							CSS3
+						</span>
+						
+						<span class="capsula">
+							<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="45" height="45" viewBox="0 0 48 48">
+							<path fill="#ffd600" d="M6,42V6h36v36H6z"></path><path fill="#000001" d="M29.538 32.947c.692 1.124 1.444 2.201 3.037 2.201 1.338 0 2.04-.665 2.04-1.585 0-1.101-.726-1.492-2.198-2.133l-.807-.344c-2.329-.988-3.878-2.226-3.878-4.841 0-2.41 1.845-4.244 4.728-4.244 2.053 0 3.528.711 4.592 2.573l-2.514 1.607c-.553-.988-1.151-1.377-2.078-1.377-.946 0-1.545.597-1.545 1.377 0 .964.6 1.354 1.985 1.951l.807.344C36.452 29.645 38 30.839 38 33.523 38 36.415 35.716 38 32.65 38c-2.999 0-4.702-1.505-5.65-3.368L29.538 32.947zM17.952 33.029c.506.906 1.275 1.603 2.381 1.603 1.058 0 1.667-.418 1.667-2.043V22h3.333v11.101c0 3.367-1.953 4.899-4.805 4.899-2.577 0-4.437-1.746-5.195-3.368L17.952 33.029z"></path>
+							</svg>							
+							JavaScript
+						</span>
+						<span class="capsula">
+						<svg fill="#777BB4" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>PHP</title><path d="M7.01 10.207h-.944l-.515 2.648h.838c.556 0 .97-.105 1.242-.314.272-.21.455-.559.55-1.049.092-.47.05-.802-.124-.995-.175-.193-.523-.29-1.047-.29zM12 5.688C5.373 5.688 0 8.514 0 12s5.373 6.313 12 6.313S24 15.486 24 12c0-3.486-5.373-6.312-12-6.312zm-3.26 7.451c-.261.25-.575.438-.917.551-.336.108-.765.164-1.285.164H5.357l-.327 1.681H3.652l1.23-6.326h2.65c.797 0 1.378.209 1.744.628.366.418.476 1.002.33 1.752a2.836 2.836 0 0 1-.305.847c-.143.255-.33.49-.561.703zm4.024.715l.543-2.799c.063-.318.039-.536-.068-.651-.107-.116-.336-.174-.687-.174H11.46l-.704 3.625H9.388l1.23-6.327h1.367l-.327 1.682h1.218c.767 0 1.295.134 1.586.401s.378.7.263 1.299l-.572 2.944h-1.389zm7.597-2.265a2.782 2.782 0 0 1-.305.847c-.143.255-.33.49-.561.703a2.44 2.44 0 0 1-.917.551c-.336.108-.765.164-1.286.164h-1.18l-.327 1.682h-1.378l1.23-6.326h2.649c.797 0 1.378.209 1.744.628.366.417.477 1.001.331 1.751zM17.766 10.207h-.943l-.516 2.648h.838c.557 0 .971-.105 1.242-.314.272-.21.455-.559.551-1.049.092-.47.049-.802-.125-.995s-.524-.29-1.047-.29z"/></svg>
+							PHP
+						</span>
+					</div>
+				</div>
+			</div>
+
 			<div class="proyecto-card">
 				<div class="imagen-contenedor">
-					<img src="/src/assets/postgradofp.png" alt="IUDI">
+					<Image src={postg} alt="PostGradoFP" />
 				</div>
 				
 				<div class="contenido-card">
 					<h3>PostGradoFP</h3>
-					<p>Página web oficial de PostgradoFP, la cual aporté mi experiencia en desarrollo web durante el periodo de prácticas.</p>
+					<p>Desarrollo y optimización a medida de la interfaz principal. Integración de flujos de <strong>automatización para los procesos formativos</strong> y mejora continua del rendimiento y <strong>SEO técnico</strong>, logrando escalar de forma eficiente el tráfico.</p>
 					
 					<div class="enlaces-proyecto">
 						<a href="https://postgradofp.com/" target="_blank" class="btn-proyecto primario">
@@ -422,58 +495,13 @@ Las funcionalidades que más me gustaron desarrollar fueron el feed social con l
 
 			<div class="proyecto-card">
 					<div class="imagen-contenedor">
-					<img src="/src/assets/cip.png" alt="IUDI">
+					<Image src={cip} alt="Centro Internacional Postgrado" />
 					</div>
 				<div class="contenido-card">
 					<h3>Centro Internacional Postgrado</h3>
-					<p>Página web oficial de Centro Internacional Postgrado, la cual aporté mi experiencia en desarrollo web durante el periodo de prácticas.</p>
-					
+					<p>Mantenimiento evolutivo y optimización de la plataforma. Creación de componentes personalizados, despliegue de estrategias <strong>SEO-GEO para abarcar múltiples regiones</strong> y <strong>automatización de tareas administrativas</strong> recurrentes para mejorar la eficiencia del equipo.</p>
 					<div class="enlaces-proyecto">
 						<a href="https://centrointernacionalpostgrado.com/" target="_blank" class="btn-proyecto primario">
-							<svg  xmlns="http://www.w3.org/2000/svg" width="24" height="24"  fill="currentColor" viewBox="0 0 24 24" >
-							<path d="M3 5v6h2V5h14v14h-6v2h6c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2"></path><path d="m6.71 18.71 5.5-5.5L15 16V9H8l2.79 2.79-5.5 5.5z"></path>
-							</svg>
-							Ver sitio web
-						</a>
-					</div>
-
-					<div class="tech-capsulas">
-						<span class="capsula">
-						<svg viewBox="0 0 122.52 122.523"><g fill="#21759b"><path d="m8.708 61.26c0 20.802 12.089 38.779 29.619 47.298l-25.069-68.686c-2.916 6.536-4.55 13.769-4.55 21.388z"/><path d="m96.74 58.608c0-6.495-2.333-10.993-4.334-14.494-2.664-4.329-5.161-7.995-5.161-12.324 0-4.831 3.664-9.328 8.825-9.328.233 0 .454.029.681.042-9.35-8.566-21.807-13.796-35.489-13.796-18.36 0-34.513 9.42-43.91 23.688 1.233.037 2.395.063 3.382.063 5.497 0 14.006-.667 14.006-.667 2.833-.167 3.167 3.994.337 4.329 0 0-2.847.335-6.015.501l19.138 56.925 11.501-34.493-8.188-22.434c-2.83-.166-5.511-.501-5.511-.501-2.832-.166-2.5-4.496.332-4.329 0 0 8.679.667 13.843.667 5.496 0 14.006-.667 14.006-.667 2.835-.167 3.168 3.994.337 4.329 0 0-2.853.335-6.015.501l18.992 56.494 5.242-17.517c2.272-7.269 4.001-12.49 4.001-16.989z"/><path d="m62.184 65.857-15.768 45.819c4.708 1.384 9.687 2.141 14.846 2.141 6.12 0 11.989-1.058 17.452-2.979-.141-.225-.269-.464-.374-.724z"/><path d="m107.376 36.046c.226 1.674.354 3.471.354 5.404 0 5.333-.996 11.328-3.996 18.824l-16.053 46.413c15.624-9.111 26.133-26.038 26.133-45.426.001-9.137-2.333-17.729-6.438-25.215z"/><path d="m61.262 0c-33.779 0-61.262 27.481-61.262 61.26 0 33.783 27.483 61.263 61.262 61.263 33.778 0 61.265-27.48 61.265-61.263-.001-33.779-27.487-61.26-61.265-61.26zm0 119.715c-32.23 0-58.453-26.223-58.453-58.455 0-32.23 26.222-58.451 58.453-58.451 32.229 0 58.45 26.221 58.45 58.451 0 32.232-26.221 58.455-58.45 58.455z"/></g></svg>
-							WordPress
-						</span>
-						
-						<span class="capsula">
-							<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="45" height="45" viewBox="0 0 48 48">
-							<path fill="#0277BD" d="M41,5H7l3,34l14,4l14-4L41,5L41,5z"></path><path fill="#039BE5" d="M24 8L24 39.9 35.2 36.7 37.7 8z"></path><path fill="#FFF" d="M33.1 13L24 13 24 17 28.9 17 28.6 21 24 21 24 25 28.4 25 28.1 29.5 24 30.9 24 35.1 31.9 32.5 32.6 21 32.6 21z"></path><path fill="#EEE" d="M24,13v4h-8.9l-0.3-4H24z M19.4,21l0.2,4H24v-4H19.4z M19.8,27h-4l0.3,5.5l7.9,2.6v-4.2l-4.1-1.4L19.8,27z"></path>
-							</svg>							CSS3
-						</span>
-						
-						<span class="capsula">
-							<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="45" height="45" viewBox="0 0 48 48">
-							<path fill="#ffd600" d="M6,42V6h36v36H6z"></path><path fill="#000001" d="M29.538 32.947c.692 1.124 1.444 2.201 3.037 2.201 1.338 0 2.04-.665 2.04-1.585 0-1.101-.726-1.492-2.198-2.133l-.807-.344c-2.329-.988-3.878-2.226-3.878-4.841 0-2.41 1.845-4.244 4.728-4.244 2.053 0 3.528.711 4.592 2.573l-2.514 1.607c-.553-.988-1.151-1.377-2.078-1.377-.946 0-1.545.597-1.545 1.377 0 .964.6 1.354 1.985 1.951l.807.344C36.452 29.645 38 30.839 38 33.523 38 36.415 35.716 38 32.65 38c-2.999 0-4.702-1.505-5.65-3.368L29.538 32.947zM17.952 33.029c.506.906 1.275 1.603 2.381 1.603 1.058 0 1.667-.418 1.667-2.043V22h3.333v11.101c0 3.367-1.953 4.899-4.805 4.899-2.577 0-4.437-1.746-5.195-3.368L17.952 33.029z"></path>
-							</svg>							
-							JavaScript
-						</span>
-						<span class="capsula">
-						<svg fill="#777BB4" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>PHP</title><path d="M7.01 10.207h-.944l-.515 2.648h.838c.556 0 .97-.105 1.242-.314.272-.21.455-.559.55-1.049.092-.47.05-.802-.124-.995-.175-.193-.523-.29-1.047-.29zM12 5.688C5.373 5.688 0 8.514 0 12s5.373 6.313 12 6.313S24 15.486 24 12c0-3.486-5.373-6.312-12-6.312zm-3.26 7.451c-.261.25-.575.438-.917.551-.336.108-.765.164-1.285.164H5.357l-.327 1.681H3.652l1.23-6.326h2.65c.797 0 1.378.209 1.744.628.366.418.476 1.002.33 1.752a2.836 2.836 0 0 1-.305.847c-.143.255-.33.49-.561.703zm4.024.715l.543-2.799c.063-.318.039-.536-.068-.651-.107-.116-.336-.174-.687-.174H11.46l-.704 3.625H9.388l1.23-6.327h1.367l-.327 1.682h1.218c.767 0 1.295.134 1.586.401s.378.7.263 1.299l-.572 2.944h-1.389zm7.597-2.265a2.782 2.782 0 0 1-.305.847c-.143.255-.33.49-.561.703a2.44 2.44 0 0 1-.917.551c-.336.108-.765.164-1.286.164h-1.18l-.327 1.682h-1.378l1.23-6.326h2.649c.797 0 1.378.209 1.744.628.366.417.477 1.001.331 1.751zM17.766 10.207h-.943l-.516 2.648h.838c.557 0 .971-.105 1.242-.314.272-.21.455-.559.551-1.049.092-.47.049-.802-.125-.995s-.524-.29-1.047-.29z"/></svg>
-							PHP
-						</span>
-					</div>
-				</div>
-			</div>
-
-
-				<div class="proyecto-card">
-					<div class="imagen-contenedor">
-					<img src="/src/assets/iudi.png" alt="IUDI">
-					</div>
-				<div class="contenido-card">
-					<h3>Instituto IUDI</h3>
-					<p>Página web oficial de Instituto IUDI, la cual aporté mi experiencia en desarrollo web durante el periodo de prácticas.</p>
-					
-					<div class="enlaces-proyecto">
-						<a href="https://institutoiudi.com/" target="_blank" class="btn-proyecto primario">
 							<svg  xmlns="http://www.w3.org/2000/svg" width="24" height="24"  fill="currentColor" viewBox="0 0 24 24" >
 							<path d="M3 5v6h2V5h14v14h-6v2h6c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2"></path><path d="m6.71 18.71 5.5-5.5L15 16V9H8l2.79 2.79-5.5 5.5z"></path>
 							</svg>
@@ -510,7 +538,7 @@ Las funcionalidades que más me gustaron desarrollar fueron el feed social con l
 
 			<div class="proyecto-card">
 				<div class="imagen-contenedor">
-					<img src="/src/assets/translate.png" alt="Captura del Proyecto 1">
+					<Image src={translate} alt="Traductor Carlos" />
 				</div>
 				
 				<div class="contenido-card">
@@ -555,7 +583,8 @@ Las funcionalidades que más me gustaron desarrollar fueron el feed social con l
 			
 	</section>
 
-	<section id="experiencia" class="seccion-experiencia">
+	<!-- Sección de Experiencia y Estudios -->
+	<section id="experiencia" class="seccion-experiencia revelar">
 		<h2 class="titulo-seccion">Trayectoria</h2>
 		
 		<div class="grid-trayectoria">
@@ -570,20 +599,10 @@ Las funcionalidades que más me gustaron desarrollar fueron el feed social con l
 					<div class="timeline-item">
 						<div class="timeline-punto"></div>
 						<div class="timeline-contenido">
-							<span class="timeline-fecha">01/2026 - 06/2026 (Prácticas)</span>
+							<span class="timeline-fecha">09/2026 - Actual</span>
 							<h4>Desarrollador Web Junior</h4>
 							<h5 class="timeline-empresa">ACEO Internacional Business</h5>
-							<p>Creación y mantenimiento de plataformas corporativas. Desarrollo de temas personalizados en WordPress, optimización de interfaces y colaboración en el despliegue de sitios web reales para clientes.</p>
-						<a href="/carta-recomendacion.pdf" target="_blank" class="btn-timeline">
-								<svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-									<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-									<polyline points="14 2 14 8 20 8"></polyline>
-									<line x1="16" y1="13" x2="8" y2="13"></line>
-									<line x1="16" y1="17" x2="8" y2="17"></line>
-									<polyline points="10 9 9 9 8 9"></polyline>
-								</svg>
-								Carta de Recomendación
-							</a>
+							<p>Desarrollo, mantenimiento y evolución de plataformas web corporativas bajo <strong>WordPress</strong> con lógica personalizada en <strong>PHP</strong>, <strong>JavaScript</strong>, <strong>HTML</strong> y <strong>CSS</strong>. Implementación de flujos de <strong>automatización de tareas</strong> y despliegue de estrategias técnicas de <strong>posicionamiento SEO y GEO</strong>, optimizando la visibilidad orgánica local y el rendimiento de captación.</p>
 						</div>
 					</div>
 					<div class="timeline-item">
@@ -624,7 +643,8 @@ Las funcionalidades que más me gustaron desarrollar fueron el feed social con l
 		</div>
 	</section>
 
-	<section id="contacto" class="seccion-contacto">
+	<!-- Sección de Contacto -->
+	<section id="contacto" class="seccion-contacto revelar">
 		<h2 class="titulo-seccion">Contacto</h2>
 		
 		<div class="tarjeta-contacto">
@@ -665,90 +685,94 @@ Las funcionalidades que más me gustaron desarrollar fueron el feed social con l
 		</div>
 	</section>
 
+	<!-- Pie de página -->
 	<footer class="pie-pagina">
-		<p>© 2026 Carlos Quesada. Algún que otro derecho <span class="texto-verde">reservado</span> y mucho café.</p>
+		<p>© 2026 Carlos Quesada. Algún que otro derecho <span class="texto-verde">reservado</span>.</p>
 	</footer>
 
 </Layout>
 
 <script>
-	// Esperamos a que todo el HTML esté cargado antes de ejecutar la magia
-		document.addEventListener('DOMContentLoaded', () => {
-			
-			// --- LÓGICA DEL BOTÓN LEER MÁS ---
-			const botonesLeerMas = document.querySelectorAll('.btn-leer-mas');
+	//  LÓGICA DEL BOTÓN LEER MÁS 
+		const botonesLeerMas = document.querySelectorAll<HTMLButtonElement>('.btn-leer-mas');
+		
+		botonesLeerMas.forEach(boton => {
+			boton.addEventListener('click', function(this: HTMLButtonElement) {
+				
+				
+				const parrafo = this.previousElementSibling as HTMLElement;
+				
+				if (parrafo) {
+					parrafo.classList.toggle('expandido');
 
-			botonesLeerMas.forEach(boton => {
-				boton.addEventListener('click', function() {
-					// Buscamos el párrafo que está justo encima de este botón
-					const parrafo = this.previousElementSibling;
-					
-					if (parrafo) {
-						// Le quitamos o ponemos la clase que expande el texto
-						parrafo.classList.toggle('expandido');
-
-						// Cambiamos el texto del botón
-						if (parrafo.classList.contains('expandido')) {
-							this.textContent = 'Leer menos';
-						} else {
-							this.textContent = 'Leer más';
-						}
+					if (parrafo.classList.contains('expandido')) {
+						this.textContent = 'Leer menos';
+					} else {
+						this.textContent = 'Leer más';
 					}
-				});
+				}
 			});
 		});
 
+		//  ANIMACIONES DE SCROLL
+		const elementosParaAnimar = document.querySelectorAll('.revelar');
 
-	// 1. Las frases que vamos a teclear
+		const observador = new IntersectionObserver((entradas) => {
+			entradas.forEach(entrada => {
+				if (entrada.isIntersecting) {
+					entrada.target.classList.add('visible');
+					observador.unobserve(entrada.target);
+				}
+			});
+		}, {
+			threshold: 0
+		});
+
+		elementosParaAnimar.forEach(elemento => {
+			observador.observe(elemento);
+		});
+
+	
 	const palabras = [
-		"Frontend Developer.",
 		"Desarrollador Web.",
+		"SEO-GEO.",
 		"Escribiendo código.",
-		"Creador de Soluciones."
+		"Creador de Soluciones.",
+		"Optimización de Interfaces."		
 	];
 
-	// 2. Variables para llevar la cuenta
+	
 	const elementoTexto = document.getElementById('texto-animado');
-	let indicePalabra = 0; // ¿En qué palabra de la lista estamos?
-	let indiceCaracter = 0; // ¿Por qué letra de esa palabra vamos?
-	let borrando = false; // ¿Estamos escribiendo o borrando?
+	let indicePalabra = 0; 
+	let indiceCaracter = 0; 
+	let borrando = false; 
 
-	// 3. La función de la máquina de escribir
 	function teclear() {
 		if (!elementoTexto) return;
 
-		// Seleccionamos la palabra actual de la lista
 		const palabraActual = palabras[indicePalabra];
 		
 		if (borrando) {
-			// Si estamos borrando, recortamos una letra
 			elementoTexto.textContent = palabraActual.substring(0, indiceCaracter - 1);
 			indiceCaracter--;
 		} else {
-			// Si estamos escribiendo, añadimos una letra
 			elementoTexto.textContent = palabraActual.substring(0, indiceCaracter + 1);
 			indiceCaracter++;
 		}
 
-		// 4. Velocidad dinámica (teclea normal, pero borra rápido)
 		let velocidad = borrando ? 50 : 100;
 
-		// 5. Lógica de pausas
 		if (!borrando && indiceCaracter === palabraActual.length) {
-			// Si terminó de escribir la palabra entera, pausa de 2 segundos para que se lea
 			velocidad = 2000; 
 			borrando = true;
 		} else if (borrando && indiceCaracter === 0) {
-			// Si terminó de borrar todo, pasa a la siguiente palabra y haz una mini pausa
 			borrando = false;
 			indicePalabra = (indicePalabra + 1) % palabras.length;
 			velocidad = 500; 
 		}
 
-		// Volvemos a ejecutar la función después del tiempo calculado
 		setTimeout(teclear, velocidad);
 	}
 
-	// Iniciar la máquina de escribir un segundo después de cargar la página
 	setTimeout(teclear, 1000);
 </script>

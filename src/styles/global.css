@@ -1,85 +1,121 @@
-/* Reiniciamos los márgenes por defecto del navegador */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
-/* --- CONFIGURACIÓN DE TIPOGRAFÍAS --- */
+
 :root {
     --fuente-titulos: 'Outfit', system-ui, sans-serif;
     --fuente-textos: 'Inter', system-ui, sans-serif;
 }
 
-/* El fondo oscuro de toda la web */
 body {
     background-color: #020617;
     color: #e2e8f0;
     min-height: 100vh;
     font-family: var(--fuente-textos);
 }
-/* Aplicamos la fuente moderna a todos los títulos */
+
 h1, h2, h3, h4 {
     font-family: var(--fuente-titulos);
 }
 
-/* --- AJUSTES FINOS PARA H1 Y H3 --- */
-
-/* El H1 principal (Tu nombre y "Sobre Mí") */
 h1 {
-    font-weight: 800; /* Extra grueso para dar impacto */
-    letter-spacing: -1.5px; /* Juntamos un poco las letras para un look más moderno */
-    line-height: 1.1; /* Las líneas más pegadas si ocupa dos renglones */
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    line-height: 1.1;
 }
 
-/* Los H3 (Los nombres de tus Proyectos o subsecciones) */
 h3 {
-    font-weight: 700; /* Grueso, pero sin robarle protagonismo al H2 */
-    letter-spacing: -0.5px; /* Un recorte sutil */
+    font-weight: 700;
+    letter-spacing: -0.5px;
     line-height: 1.3;
-    color: #f8fafc; /* Aseguramos un color blanco muy brillante */
+    color: #f8fafc;
 }
 
-/* --- FONDO ANIMADO: ESTRELLAS FUGACES --- */
-
-/* Contenedor del cielo */
 .cielo-estrellado {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1; /* Detrás de tu contenido */
-    pointer-events: none; /* No interfiere con el ratón */
-    overflow: hidden; /* Evita que aparezca barra de scroll lateral */
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(34, 211, 238, 0.12), transparent 20%),
+        radial-gradient(circle at 80% 10%, rgba(52, 211, 153, 0.16), transparent 28%),
+        radial-gradient(circle at 50% 80%, rgba(168, 85, 247, 0.15), transparent 28%),
+        linear-gradient(180deg, rgba(2, 6, 23, 0.88) 0%, rgba(15, 23, 42, 0.96) 100%);
 }
 
-/* La estrella base (la cola difuminada) */
+.cielo-estrellado::before {
+    content: "";
+    position: absolute;
+    inset: -20%;
+    background-image:
+        radial-gradient(2px 2px at 10% 20%, rgba(255,255,255,0.9), transparent 100%),
+        radial-gradient(2px 2px at 30% 40%, rgba(255,255,255,0.7), transparent 100%),
+        radial-gradient(1.5px 1.5px at 60% 15%, rgba(255,255,255,0.8), transparent 100%),
+        radial-gradient(2px 2px at 75% 35%, rgba(255,255,255,0.9), transparent 100%),
+        radial-gradient(1.5px 1.5px at 80% 70%, rgba(255,255,255,0.8), transparent 100%),
+        radial-gradient(2px 2px at 45% 80%, rgba(255,255,255,0.8), transparent 100%),
+        radial-gradient(1.5px 1.5px at 90% 50%, rgba(255,255,255,0.75), transparent 100%);
+    opacity: 0.8;
+    animation: twinkle 12s ease-in-out infinite alternate;
+}
+
+.orb {
+    position: absolute;
+    width: 28rem;
+    height: 28rem;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.25;
+    animation: drift 18s ease-in-out infinite alternate;
+}
+
+.orb-1 {
+    top: -8rem;
+    left: -6rem;
+    background: rgba(34, 211, 238, 0.45);
+}
+
+.orb-2 {
+    right: -8rem;
+    top: 10%;
+    background: rgba(52, 211, 153, 0.35);
+    animation-delay: 2s;
+}
+
+.orb-3 {
+    bottom: -10rem;
+    left: 28%;
+    background: rgba(168, 85, 247, 0.3);
+    animation-delay: 4s;
+}
+
 .estrella-fugaz {
     position: absolute;
     width: 150px;
     height: 2px;
-    background: linear-gradient(90deg, rgba(255,255,255, 0), rgba(255,255,255, 1));
+    background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.9));
     border-radius: 999px;
-    filter: drop-shadow(0 0 6px rgba(52, 211, 153, 1)); /* Brillo esmeralda */
+    filter: drop-shadow(0 0 8px rgba(52, 211, 153, 0.9));
     opacity: 0;
     animation: viaje-estelar linear infinite;
 }
 
-/* La cabeza de la estrella (el punto brillante frontal) */
 .estrella-fugaz::before {
     content: '';
     position: absolute;
     top: 50%;
     right: 0;
     transform: translateY(-50%);
-    width: 4px;
-    height: 4px;
+    width: 5px;
+    height: 5px;
     background: #ffffff;
     border-radius: 50%;
-    box-shadow: 0 0 15px #34d399, 0 0 30px #34d399; /* Halo de luz */
+    box-shadow: 0 0 15px rgba(52, 211, 153, 0.9), 0 0 30px rgba(52, 211, 153, 0.9);
 }
 
-/* La animación que mueve la estrella en diagonal */
 @keyframes viaje-estelar {
     0% {
         transform: rotate(35deg) translateX(-100vw);
@@ -91,28 +127,24 @@ h3 {
     }
 }
 
-/* Retrasos y posiciones aleatorias para las 4 estrellas */
-.estrella-fugaz:nth-child(1) { top: 10%; left: -20%; animation-duration: 4s; animation-delay: 0s; }
-.estrella-fugaz:nth-child(2) { top: -10%; left: 30%; animation-duration: 6s; animation-delay: 2s; }
-.estrella-fugaz:nth-child(3) { top: 40%; left: -30%; animation-duration: 5s; animation-delay: 4s; }
-.estrella-fugaz:nth-child(4) { top: -20%; left: 70%; animation-duration: 7s; animation-delay: 6s; }
-.estrella-fugaz:nth-child(5) { top: 60%; left: -10%; animation-duration: 8s; animation-delay: 8s; }
-.estrella-fugaz:nth-child(6) { top: 80%; left: 20%; animation-duration: 9s; animation-delay: 10s; }
-.estrella-fugaz:nth-child(7) { top: 90%; left: 50%; animation-duration: 10s; animation-delay: 12s; }
-.estrella-fugaz:nth-child(8) { top: 40%; left: 50%; animation-duration: 1s; animation-delay: 14s; }
-/*
-body {
-    background-color: #020617;
-    color: #e2e8f0;
-    min-height: 100vh;
-    /* La magia de la cuadrícula sutil 
-    background-image: 
-        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-    background-size: 80px 80px; /* Tamaño de los cuadraditos 
+@keyframes twinkle {
+    0% { transform: scale(1) translateY(0); opacity: 0.5; }
+    100% { transform: scale(1.08) translateY(-10px); opacity: 1; }
 }
-*/
-/* Contenedor para centrar el contenido */
+
+@keyframes drift {
+    0% { transform: translate3d(0, 0, 0) scale(0.95); }
+    100% { transform: translate3d(3rem, 2rem, 0) scale(1.08); }
+}
+
+.estrella-fugaz:nth-child(4) { top: 10%; left: -20%; animation-duration: 4s; animation-delay: 0s; }
+.estrella-fugaz:nth-child(5) { top: -10%; left: 30%; animation-duration: 6s; animation-delay: 2s; }
+.estrella-fugaz:nth-child(6) { top: 40%; left: -30%; animation-duration: 5s; animation-delay: 4s; }
+.estrella-fugaz:nth-child(7) { top: -20%; left: 70%; animation-duration: 7s; animation-delay: 6s; }
+.estrella-fugaz:nth-child(8) { top: 60%; left: -10%; animation-duration: 8s; animation-delay: 8s; }
+.estrella-fugaz:nth-child(9) { top: 80%; left: 20%; animation-duration: 9s; animation-delay: 10s; }
+.estrella-fugaz:nth-child(10) { top: 90%; left: 50%; animation-duration: 10s; animation-delay: 12s; }
+.estrella-fugaz:nth-child(11) { top: 40%; left: 50%; animation-duration: 11s; animation-delay: 14s; }
 .contenedor-central {
     display: flex;
     flex-direction: column;
@@ -124,7 +156,6 @@ body {
     z-index: 10;
 }
 
-/* Estilos de tus textos */
 h1 {
     font-size: 3rem;
     color: #ffffff;
@@ -132,7 +163,7 @@ h1 {
 }
 
 .texto-verde {
-    color: #34d399; /* Verde esmeralda brillante */
+    color: #34d399;
 }
 
 .subtitulo {
@@ -140,7 +171,6 @@ h1 {
     color: #94a3b8;
 }
 
-/* Capa invisible para la luz del ratón */
 #efecto-luz {
     pointer-events: none;
     position: fixed;
@@ -151,171 +181,228 @@ h1 {
     z-index: 30;
 }
 
-/* Contenedor del texto dinámico para que no se mueva el resto de la página */
 .contenedor-dinamico {
-    height: 35px; /* Fijamos la altura */
+    height: 35px;
     overflow: hidden;
     margin-top: 0.5rem;
 }
 
-/* Estilo para la palabra que va a ir cambiando 
-.palabra-cambiante {
-    font-size: 1.5rem;
-    color: #94a3b8; /* Gris elegante 
-    font-weight: 500;
-    display: inline-block;
-    transition: all 0.5s ease-in-out; /* Animación suave de medio segundo 
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Clase que aplicaremos por JavaScript para ocultar la palabra temporalmente 
-.palabra-oculta {
-    opacity: 0;
-    transform: translateY(-20px); /* Hace que "suba" y desaparezca 
-} */
-
-/* Estilo general del texto que se escribe */
 .texto-maquina {
     font-size: 2rem;
     color: #94a3b8;
     font-weight: 100;
     display: inline-flex;
     align-items: center;
-    min-height: 2rem; /* Mantiene la altura para que no salte el contenido */
+    min-height: 2rem;
 }
 
-/* El cursor parpadeante verde */
 .cursor {
     display: inline-block;
     width: 1.5px;
     height: 1.5rem;
-    background-color: #34d399; /* Mismo verde que tu nombre */
+    background-color: #34d399;
     margin-left: 4px;
-    animation: parpadeo 1s infinite; /* Hace que parpadee infinitamente */
+    animation: parpadeo 1s infinite;
 }
 
-/* La animación que enciende y apaga el cursor */
 @keyframes parpadeo {
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }
 }
 
-
-/* --- VÍDEO HERO PANTALLA PRINCIPAL --- */
-.contenedor-video-hero {
-    position: relative;
-    width: 100%;
-    max-width: 650px; /* Tamaño de cine, pero sin tapar el texto inferior */
-    aspect-ratio: 16 / 9; /* Formato panorámico perfecto */
-    margin: 0 auto 2.5rem auto;
-    border-radius: 24px; /* Bordes redondeados muy modernos */
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    
-    /* El halo de luz: mezcla el cian de la cara y el morado de la habitación */
-    box-shadow: 
-        0 10px 10px rgba(6, 182, 212, 0.3), 
-        0 0 4px rgba(162, 89, 255, 0.15);
-    
-    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.5s ease;
-    z-index: 10;
+.hero-asimetrico {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  width: min(100% - 2rem, 1200px);
+  min-height: calc(100vh - 8rem);
+  margin: 4rem auto;
+  text-align: center;
 }
 
-/* Efecto al pasar el ratón: el vídeo levita y brilla más */
-.contenedor-video-hero:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 
-        0 10px 10px rgba(6, 182, 212, 0.4), 
-        0 0 10px rgba(162, 89, 255, 0.25);
+.columna-nombre,
+.columna-info {
+  width: 100%;
+  min-width: 0;
 }
 
-/* Ajuste perfecto del vídeo */
-.video-avatar {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+.columna-nombre {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* El degradado inferior: hace que el vídeo se funda con el color oscuro de tu web */
-.overlay-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* Va de transparente arriba a casi negro (tu color #020617) abajo */
-    background: linear-gradient(to bottom, transparent 60%, rgba(2, 6, 23, 0.9)100%);
-    pointer-events: none; /* Para no bloquear si el usuario hace clic */
+.titulo-gigante {
+  font-size: clamp(3rem, 6vw, 6rem);
+  line-height: 0.95;
+  font-weight: 800;
+  letter-spacing: -2px;
+  color: #ffffff;
+  margin: 0;
+  text-transform: uppercase;
 }
 
-/* 2. Botones de Redes Sociales */
+.columna-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.texto-maquina {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 5rem;
+  padding-inline: 0.5rem;
+  color: #94a3b8;
+  font-size: clamp(1.35rem, 3vw, 2rem);
+  font-weight: 300;
+  line-height: 1.25;
+  text-align: center;
+}
+
+#texto-animado {
+  display: inline;
+  overflow-wrap: anywhere;
+}
+
+.cursor {
+  display: inline-block;
+  flex: 0 0 2px;
+  width: 2px;
+  height: 1.25em;
+  margin-left: 0.3rem;
+  background-color: #34d399;
+  animation: parpadeo 1s infinite;
+}
+
 .contenedor-redes {
-    display: flex;
-    gap: 1.5rem; /* Separación entre botones */
-    margin-top: 2rem;
-    justify-content: center;
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
 }
 
 .boton-red {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.03); /* Efecto cristal */
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: #94a3b8; /* Gris claro */
-    transition: all 0.3s ease;
-    text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #94a3b8;
+  transition: all 0.3s ease;
+  text-decoration: none;
 }
 
-/* Efecto al pasar el ratón por los botones */
 .boton-red:hover {
-    background-color: rgba(52, 211, 153, 0.15); /* Fondo verde semitransparente */
-    color: #34d399; /* Icono verde */
-    border-color: #34d399;
-    transform: translateY(-5px); /* Pequeño salto hacia arriba */
+  background-color: rgba(52, 211, 153, 0.15);
+  color: #34d399;
+  border-color: #34d399;
+  transform: translateY(-5px);
 }
 
-/* Tamaño de los iconos SVG de las redes */
 .boton-red svg {
-    width: 22px;
-    height: 22px;
-    fill: currentColor; /* Toma el color del texto automáticamente */
+  display: block;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  color: inherit;
+  fill: currentColor !important;
+}
+
+.boton-red svg path {
+  fill: currentColor !important;
+}
+
+@keyframes parpadeo {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.hero-asimetrico .boton-cv {
+  margin-top: 0;
+}
+
+@media (min-width: 768px) {
+  .hero-asimetrico {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    text-align: left;
+  }
+
+  .columna-nombre,
+  .columna-info {
+    min-height: 430px;
+  }
+
+  .columna-nombre {
+    padding-right: clamp(2rem, 4vw, 4rem);
+    border-right: 2px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .columna-info {
+    padding-left: clamp(2rem, 4vw, 4rem);
+    align-items: center;
+    text-align: center;
+  }
+
+  .texto-maquina {
+    min-height: 5rem;
+  }
+
+  .redes-hero {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-asimetrico {
+    gap: 2.5rem;
+    padding-block: 6rem 4rem;
+    margin-block: 0;
+  }
+
+  .columna-nombre {
+    padding-bottom: 2.5rem;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  }
 }
 
 
-/* --- PÁGINA OCULTA: SOLICITAR CV --- */
 
-/* --- BOTÓN SOLICITAR CV (Rediseño Premium) --- */
 .boton-cv {
     display: inline-flex;
     align-items: center;
     gap: 0.8rem;
     margin-top: 1rem;
-    padding: 0.8rem 2.2rem; /* Más alargado y elegante */
-    background-color: rgba(52, 211, 153, 0.05); /* Fondo casi transparente */
-    color: #34d399; /* Texto verde esmeralda */
-    border: 1px solid rgba(52, 211, 153, 0.3); /* Borde sutil */
-    border-radius: 50px; /* Forma de píldora */
+    padding: 0.8rem 2.2rem;
+    background-color: rgba(52, 211, 153, 0.05);
+    color: #34d399;
+    border: 1px solid rgba(52, 211, 153, 0.3);
+    border-radius: 50px;
     font-size: 1rem;
     font-weight: 600;
     text-decoration: none;
     letter-spacing: 0.5px;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    backdrop-filter: blur(10px); /* Efecto cristal */
+    backdrop-filter: blur(10px);
 }
 
-/* El brillo espectacular al pasar el ratón */
 .boton-cv:hover {
-    background-color: rgba(52, 211, 153, 0.15); /* Se rellena un poco más */
-    border-color: #34d399; /* El borde se enciende al 100% */
-    color: #ffffff; /* Texto pasa a blanco para contrastar */
-    transform: translateY(-4px); /* Salto suave hacia arriba */
-    box-shadow: 0 10px 25px -5px rgba(52, 211, 153, 0.4), 0 0 15px rgba(52, 211, 153, 0.2); /* Halo de luz */
+    background-color: rgba(52, 211, 153, 0.15);
+    border-color: #34d399;
+    color: #ffffff;
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px -5px rgba(52, 211, 153, 0.4), 0 0 15px rgba(52, 211, 153, 0.2);
 }
 
 .boton-cv svg {
@@ -325,9 +412,9 @@ h1 {
 }
 
 .boton-cv:hover svg {
-    transform: scale(1.1); /* El icono crece un pelín */
+    transform: scale(1.1);
 }
-/* 1. Nuevo botón Volver (Estilo Cristal Premium) */
+
 .boton-volver {
     display: inline-flex;
     align-items: center;
@@ -345,7 +432,7 @@ h1 {
 }
 
 .boton-volver:hover {
-    color: #34d399; /* Se vuelve esmeralda */
+    color: #34d399; 
     border-color: rgba(52, 211, 153, 0.4);
     background-color: rgba(52, 211, 153, 0.1);
     transform: translateX(-5px);
@@ -356,7 +443,6 @@ h1 {
     height: 18px;
 }
 
-/* 2. Estilos del Formulario (se mantienen igual) */
 .cuerpo-formulario { padding: 2rem; text-align: left; }
 .texto-instruccion { color: #94a3b8; font-size: 0.95rem; line-height: 1.6; margin-bottom: 2rem; }
 .formulario-cv { display: flex; flex-direction: column; gap: 1.5rem; }
@@ -377,7 +463,6 @@ h1 {
     box-shadow: 0 0 10px rgba(52, 211, 153, 0.2);
 }
 
-/* 3. Nuevo botón Enviar (Estilo Fantasma / Hacker) */
 .boton-enviar {
     display: flex;
     align-items: center;
@@ -386,9 +471,9 @@ h1 {
     width: 100%;
     padding: 0.8rem;
     margin-top: 1rem;
-    background-color: transparent; /* Fondo transparente */
-    color: #34d399; /* Texto verde */
-    border: 1px solid #34d399; /* Borde verde */
+    background-color: transparent; 
+    color: #34d399; 
+    border: 1px solid #34d399; 
     border-radius: 8px;
     font-size: 1rem;
     font-weight: 600;
@@ -397,9 +482,9 @@ h1 {
 }
 
 .boton-enviar:hover {
-    background-color: #34d399; /* Se rellena de verde */
-    color: #020617; /* El texto se vuelve oscuro */
-    box-shadow: 0 0 20px rgba(52, 211, 153, 0.4); /* Resplandor */
+    background-color: #34d399; 
+    color: #020617; 
+    box-shadow: 0 0 20px rgba(52, 211, 153, 0.4); 
     transform: translateY(-2px);
 }
 
@@ -409,32 +494,23 @@ h1 {
 }
 
 
-/* ------------------ ESTILOS DEL NAVBAR --- */
-
-/* El contenedor principal: fijo, centrado y con efecto cristal */
-/* El contenedor principal con efecto Glassmorphism premium */
 .navbar-flotante {
     position: fixed;
     top: 2rem;
     left: 50%;
     transform: translateX(-50%);
     
-    /* 1. EL CRISTAL (Fondo casi transparente) */
     background: rgba(255, 255, 255, 0.03); 
     
-    /* 2. EL DESENFOQUE (La magia esmerilada) */
     backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px); /* Soporte para navegadores Safari/Apple */
+    -webkit-backdrop-filter: blur(16px); 
     
-    /* 3. LOS REFLEJOS DE LUZ (Bordes 3D) */
     border: 1px solid rgba(255, 255, 255, 0.05);
     border-top: 1px solid rgba(255, 255, 255, 0.15); /* Reflejo de luz superior */
     border-left: 1px solid rgba(255, 255, 255, 0.15); /* Reflejo de luz lateral */
     
-    /* 4. LA SOMBRA (Para que parezca que flota) */
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
     
-    /* Estructura básica */
     padding: 0.5rem;
     border-radius: 50px;
     display: flex;
@@ -442,42 +518,37 @@ h1 {
     z-index: 100;
 }
 
-/* Cada botón del navbar */
 .nav-item {
     display: flex;
     align-items: center;
     text-decoration: none;
-    color: #94a3b8; /* Gris claro */
+    color: #94a3b8;
     padding: 0.6rem;
     border-radius: 50px;
-    transition: all 0.3s ease; /* Animación fluida */
-    overflow: hidden; /* Oculta lo que sobresale */
+    transition: all 0.3s ease;
+    overflow: hidden; 
 }
 
-/* Efecto al pasar el ratón por el botón */
 .nav-item:hover {
-    background-color: rgba(52, 211, 153, 0.15); /* Fondo verde suave */
-    color: #34d399; /* Icono y texto en verde brillante */
+    background-color: rgba(52, 211, 153, 0.15); 
+    color: #34d399; 
 }
 
-/* El texto de la descripción (magia aquí) */
 .nav-text {
-    max-width: 0; /* Ancho cero por defecto para que no se vea */
-    opacity: 0; /* Totalmente transparente */
-    white-space: nowrap; /* Para que el texto no salte de línea */
-    transition: all 0.4s ease; /* Animación de expansión */
+    max-width: 0; 
+    opacity: 0; 
+    white-space: nowrap; 
+    transition: all 0.4s ease; 
     font-size: 0.9rem;
     font-weight: 500;
 }
 
-/* Al hacer hover en el botón, el texto crece y aparece */
 .nav-item:hover .nav-text {
-    max-width: 100px; /* Se expande */
-    opacity: 1; /* Se hace visible */
-    margin-left: 0.5rem; /* Se separa un poco del icono */
+    max-width: 100px; 
+    opacity: 1; 
+    margin-left: 0.5rem; 
 }
 
-/* Aseguramos que los iconos no se aplasten */
 .nav-icon {
     width: 24px;
     height: 24px;
@@ -485,29 +556,26 @@ h1 {
 }
 
 
-/* --- INDICADOR DE SCROLL --- */
 .contenedor-scroll {
-    position: absolute; /* Para pegarlo abajo sin mover el resto del contenido */
-    bottom: 2.5rem; /* Distancia desde el borde inferior */
+    position: absolute; 
+    bottom: 2.5rem; 
     left: 50%;
-    transform: translateX(-50%); /* Centrado perfecto */
+    transform: translateX(-50%); 
     display: flex;
     justify-content: center;
     text-decoration: none;
-    opacity: 0.6; /* Un poco transparente para no robar atención */
+    opacity: 0.6; 
     transition: opacity 0.3s ease;
 }
 
-/* Que brille cuando pasas el ratón por encima */
 .contenedor-scroll:hover {
     opacity: 1;
 }
 
-/* La cápsula exterior */
 .capsula-scroll {
     width: 26px;
     height: 42px;
-    border: 2px solid #94a3b8; /* Gris azulado */
+    border: 2px solid #94a3b8; 
     border-radius: 20px;
     display: flex;
     justify-content: center;
@@ -516,19 +584,17 @@ h1 {
 }
 
 .contenedor-scroll:hover .capsula-scroll {
-    border-color: #34d399; /* El borde se vuelve verde al pasar el ratón */
+    border-color: #34d399; 
 }
 
-/* El guion flotante de su interior */
 .guion-flotante {
     width: 4px;
     height: 8px;
-    background-color: #34d399; /* Tu verde esmeralda */
+    background-color: #34d399; 
     border-radius: 4px;
-    animation: deslizar-abajo 1.5s infinite; /* Animación infinita */
+    animation: deslizar-abajo 1.5s infinite; 
 }
 
-/* La animación que mueve el guion hacia abajo y lo desvanece */
 @keyframes deslizar-abajo {
     0% {
         transform: translateY(0);
@@ -539,8 +605,6 @@ h1 {
         opacity: 0;
     }
 }
-/*----------------------------------------------SECCIÓN SOBREMI-------------------------------------------------------- */
-/* --- SECCIÓN SOBRE MÍ (Diseño Alegre e Interactivo) --- */
 .seccion-sobre-mi {
     min-height: 100vh;
     display: flex;
@@ -554,13 +618,13 @@ h1 {
     z-index: 10;
 }
 
-/* Título con degradado vibrante (Esmeralda a Azul) */
 .titulo-sobre-mi {
     font-size: 3rem;
     font-weight: 800;
     margin-bottom: 2.5rem;
     background: linear-gradient(135deg, #34d399 0%, #3b82f6 100%);
     -webkit-background-clip: text;
+    background-clip: text; 
     -webkit-text-fill-color: transparent;
     letter-spacing: -1px;
 }
@@ -578,7 +642,6 @@ h1 {
     }
 }
 
-/* Caja de texto con diseño Glassmorphism alegre */
 .caja-texto {
     background: linear-gradient(145deg, rgba(52, 211, 153, 0.05) 0%, rgba(59, 130, 246, 0.05) 100%);
     border: 1px solid rgba(52, 211, 153, 0.3);
@@ -596,101 +659,56 @@ h1 {
 }
 
 .caja-texto strong {
-    color: #34d399; /* Resaltamos las negritas en esmeralda */
+    color: #34d399; 
     font-weight: 700;
 }
 
-/* --- FOTOS INTERACTIVAS --- */
-.contenedor-imagenes {
+.contenedor-avatar {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 2rem;
+    padding: 1rem;
+    margin: 0 auto;
+    width: 320px;
+    height: 320px;
+    
+    border-radius: 50%; 
+    background: linear-gradient(145deg, rgba(52, 211, 153, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
+    border: 2px solid rgba(52, 211, 153, 0.4);
+    
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3), 0 0 40px rgba(52, 211, 153, 0.15);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.grupo-fotos {
-    position: relative;
-    width: 280px; 
-    height: 380px; 
-    cursor: pointer; /* Cambia el ratón a la manita indicando que es clickeable */
+.contenedor-avatar:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 60px rgba(52, 211, 153, 0.4);
+    border-color: #34d399;
 }
 
-/* Estilo base de las fotos */
-.foto-base {
-    position: absolute;
+.foto-avatar {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 16px;
-    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1); /* Animación con rebote elástico */
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+    border-radius: 50%; 
+    transition: transform 0.5s ease;
 }
 
-/* Estado normal (Superpuestas) */
-.foto-tres {
-    top: -50px;
-    left: -50px;
-    z-index: 1;
-    filter: brightness(0.3);
-    border: 2px solid rgba(255,255,255,0.3);
-}
-
-.foto-dos {
-    top: -20px;
-    right: -90px;
-    z-index: 2;
-    filter: brightness(0.6);
-    border: 2px solid rgba(255,255,255,0.3);
-}
-
-.foto-uno {
-    top: 0;
-    left: 0;
-    z-index: 3;
-    border: 3px solid #020617; 
-}
-
-/* ESTADO ACTIVADO (Al hacer clic, se separan como un abanico) */
-.grupo-fotos.separadas .foto-tres {
-    transform: translate(-30px, -50px) rotate(0deg); /* Se va a la izquierda y rota */
-    filter: brightness(0.8); /* Se oscurece un poco */
-    z-index: 4; /* Pasa a estar por debajo de la foto principal */
-    box-shadow: 0 20px 40px rgba(52, 211, 153, 0.2); /* Brillo verde suave */
-    border : 1px solid #e2e8f0; /* Borde verde suave */
-
-}
-
-.grupo-fotos.separadas .foto-dos {
-    transform: translate(40px, 0px) rotate(5deg); /* Se va a la derecha y rota */
-    filter: brightness(1); /* Se ilumina por completo */
-    z-index: 5; /* Pasa a estar por encima */
-    box-shadow: 0 20px 40px rgba(52, 211, 153, 0.3); /* Brillo verde */
-    border : 1px solid #e2e8f0; /* Borde verde suave */
-}
-
-.grupo-fotos.separadas .foto-uno {
-    transform: translate(-50px, 20px) rotate(-5deg); /* Se va a la izquierda y rota */
-    filter: brightness(0.7); /* Se oscurece un poco */
-    border : 1px solid #e2e8f0; /* Borde verde suave */
-
+.contenedor-avatar:hover .foto-avatar {
+    transform: scale(1.05);
 }
 
 
-/* ------------------------------------------ SECCIÓN HABILIDADES -------------------------------------- */
+
 .seccion-habilidades {
-    /* 1. La magia del tamaño de pantalla */
-    min-height: 100vh; 
-    
-    /* 2. Centramos todo verticalmente usando Flexbox */
+        min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    
-    /* 3. Mantenemos el ancho y el centrado horizontal */
     width: 100%;
     max-width: 1000px;
-    margin: 0 auto; 
-    padding: 2rem 0; /* Un poco de espacio por arriba y abajo para que no se pegue en móviles */
+    margin: 0 auto;
+    padding: 2rem 0;
     position: relative;
     z-index: 10;
 }
@@ -701,11 +719,11 @@ h1 {
     margin-bottom: 2.5rem;
     background: linear-gradient(135deg, #34d399 0%, #3b82f6 100%);
     -webkit-background-clip: text;
+    background-clip: text; 
     -webkit-text-fill-color: transparent;
     letter-spacing: -1px;
 }
 
-/* Cuadrícula base (1 columna para móviles) */
 .grid-tarjetas {
     display: grid;
     grid-template-columns: 1fr;
@@ -713,44 +731,38 @@ h1 {
     align-items: start; 
 }
 
-/* Cuando la pantalla sea más grande (tablets/PC), forzamos 2 columnas */
 @media (min-width: 768px) {
     .grid-tarjetas {
         grid-template-columns: repeat(2, 1fr);
     }
     
-    /* Esta clase hace que una tarjeta ocupe las 2 columnas enteras */
     .tarjeta-ancha {
         grid-column: span 2;
     }
 }
 
 
-/* Los bordes superiores de colores */
 .borde-azul { border-top: 4px solid #3b82f6; }
 .borde-verde { border-top: 4px solid #10b981; }
 .borde-amarillo { border-top: 4px solid #eab308; }
-.borde-naranja { border-top: 4px solid #f97316; } 
-.borde-cian { border-top: 4px solid #06b6d4; } 
+.borde-naranja { border-top: 4px solid #f97316; }
+.borde-cian { border-top: 4px solid #06b6d4; }
 
-/* La tarjeta base */
 .tarjeta-terminal {
-    background-color: #1e293b; /* Fondo oscuro de la tarjeta */
+    background-color: #1e293b; 
     border-radius: 12px;
-    overflow: hidden; /* Para que el contenido no se salga de los bordes curvos */
+    overflow: hidden; 
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
-/* La barra superior de la ventana (donde van los botones y el título) */
 .cabecera-terminal {
-    background-color: #0f172a; /* Más oscuro que el resto de la tarjeta */
+    background-color: #0f172a; 
     padding: 0.8rem 1rem;
     display: flex;
     align-items: center;
     position: relative;
 }
 
-/* Los 3 puntitos estilo Mac */
 .botones-mac {
     display: flex;
     gap: 6px;
@@ -766,7 +778,6 @@ h1 {
 .botones-mac span:nth-child(2) { background-color: #eab308; } /* Amarillo */
 .botones-mac span:nth-child(3) { background-color: #22c55e; } /* Verde */
 
-/* Título de la tarjeta (FRONTEND, BACKEND...) */
 .cabecera-terminal h3 {
     width: 100%;
     text-align: center;
@@ -777,7 +788,6 @@ h1 {
 }
 
 
-/* Cada tecnología individual (icono + texto) */
 .tecnologia {
     display: flex;
     flex-direction: column;
@@ -790,25 +800,22 @@ h1 {
 }
 
 .tecnologia:hover {
-    transform: translateY(-5px); /* Pequeño saltito al pasar el ratón */
+    transform: translateY(-5px); 
     color: #ffffff;
 }
 
-/* Tamaño de los iconos */
 .tecnologia svg, .tecnologia img {
     width: 45px;
     height: 45px;
 }
-/* Cuerpo especial para la tarjeta ancha de herramientas */
 .cuerpo-herramientas {
     padding: 1.5rem 1rem;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center; /* Centra todos los iconos */
+    justify-content: center; 
     gap: 1.5rem;
 }
 
-/* ----------------------------------------------------------- PROYECTOS --------------------------------------------------------------------------------------------------*/
 .seccion-proyectos {
     min-height: 100vh;
     padding: 6rem 2rem;
@@ -818,30 +825,28 @@ h1 {
     z-index: 10;
 }
 
-/* Reutilizamos tu degradado para el título */
 .titulo-seccion {
     font-size: 3rem;
     font-weight: 800;
     margin-bottom: 2.5rem;
     background: linear-gradient(135deg, #34d399 0%, #3b82f6 100%);
     -webkit-background-clip: text;
+    background-clip: text; 
     -webkit-text-fill-color: transparent;
     letter-spacing: -1px;
 }
 
-/* Cuadrícula responsiva: 1 columna en móvil, 2 o 3 en PC */
 .proyectos-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 2.5rem;
 }
 
-/* La tarjeta del proyecto */
 .proyecto-card {
-    background: rgba(15, 23, 42, 0.6); /* Fondo azul muy oscuro y transparente */
-    border: 1px solid rgba(52, 211, 153, 0.2); /* Borde esmeralda sutil */
+    background: rgba(15, 23, 42, 0.6); 
+    border: 1px solid rgba(52, 211, 153, 0.2); 
     border-radius: 16px;
-    overflow: hidden; /* Para que la imagen no se salga de las esquinas redondeadas */
+    overflow: hidden; 
     transition: all 0.4s ease;
     backdrop-filter: blur(10px);
     display: flex;
@@ -854,7 +859,6 @@ h1 {
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(52, 211, 153, 0.15);
 }
 
-/* Contenedor y efecto de la imagen */
 .imagen-contenedor {
     width: 100%;
     height: 200px;
@@ -869,15 +873,14 @@ h1 {
 }
 
 .proyecto-card:hover .imagen-contenedor img {
-    transform: scale(1.05); /* La imagen hace un zoom suave al pasar el ratón */
+    transform: scale(1.05); 
 }
 
-/* Cuerpo de la tarjeta */
 .contenido-card {
     padding: 1.8rem;
     display: flex;
     flex-direction: column;
-    flex-grow: 1; /* Ocupa el espacio restante */
+    flex-grow: 1; 
 }
 
 .contenido-card h3 {
@@ -891,15 +894,14 @@ h1 {
     font-size: 0.95rem;
     line-height: 1.6;
     margin-bottom: 1.5rem;
-    flex-grow: 1; /* Empuja los botones y cápsulas hacia abajo */
+    flex-grow: 1; 
 }
 
-/* --- BOTONES DE PROYECTO --- */
 .enlaces-proyecto {
     display: flex;
     gap: 1rem;
     margin-bottom: 1.5rem;
-    margin-top: auto; /* Empuja los botones hacia abajo */
+    margin-top: auto; 
 }
 
 .btn-proyecto {
@@ -913,10 +915,9 @@ h1 {
     font-weight: 600;
     text-decoration: none;
     transition: all 0.3s ease;
-    flex: 1; /* Ambos botones ocupan la misma anchura */
+    flex: 1; 
 }
 
-/* Estilo para el botón de Código (GitHub) */
 .btn-proyecto.fantasma {
     background-color: transparent;
     color: #e2e8f0;
@@ -928,7 +929,6 @@ h1 {
     border-color: #e2e8f0;
 }
 
-/* Estilo para el botón de Demo */
 .btn-proyecto.primario {
     background-color: rgba(52, 211, 153, 0.1);
     color: #34d399;
@@ -941,13 +941,12 @@ h1 {
     box-shadow: 0 0 15px rgba(52, 211, 153, 0.4);
 }
 
-/* --- CÁPSULAS DE TECNOLOGÍA --- */
 .tech-capsulas {
     display: flex;
-    flex-wrap: wrap; /* Si hay muchas, bajan a la siguiente línea */
+    flex-wrap: wrap; 
     gap: 0.6rem;
     padding-top: 1rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.05); /* Línea divisoria muy sutil */
+    border-top: 1px solid rgba(255, 255, 255, 0.05); 
 }
 
 .capsula {
@@ -962,87 +961,75 @@ h1 {
     border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* Tamaño de los iconos de lenguaje dentro de la cápsula */
 .capsula svg {
     width: 16px;
     height: 16px;
-    display: block; /* Evita márgenes invisibles indeseados */
+    display: block; 
 }
 
-/* --- BOTÓN LEER MÁS Y RECORTES --- */
 .contenedor-descripcion {
     margin-bottom: 1.5rem;
-    flex-grow: 1; /* Empuja el resto hacia abajo */
+    flex-grow: 1; 
     display: flex;
     flex-direction: column;
     align-items: flex-start;
 }
 
 .texto-recortado {
-    color: #94a3b8;
-    font-size: 0.95rem;
-    line-height: 1.6;
-    margin-bottom: 0.5rem !important; /* Sobrescribimos el margen anterior */
     
-    /* La magia del recorte a 3 líneas */
     display: -webkit-box;
     -webkit-line-clamp: 3;
+    line-clamp: 3; 
     -webkit-box-orient: vertical;
     overflow: hidden;
     transition: all 0.3s ease;
 }
 
-/* Esta clase se añadirá con Javascript al hacer clic */
-/* Esta clase se añadirá con Javascript al hacer clic */
 .texto-recortado.expandido {
-    display: block; /* Al quitar el webkit-box, el texto se libera por completo */
+    display: block; 
     -webkit-line-clamp: unset;
+    line-clamp: unset; 
 }
 
-/* El botón sutil de Leer más */
 .btn-leer-mas {
     background: none;
     border: none;
-    color: #34d399; /* Tu verde esmeralda */
+    color: #34d399; 
     font-size: 0.80rem;
     align-self:center;
     font-weight: 400;
     cursor: pointer;
     padding: 0;
     text-decoration: underline;
-    text-underline-offset: 4px; /* Separa un poco el subrayado */
+    text-underline-offset: 4px; 
     transition: color 0.3s ease;
 }
 
 .btn-leer-mas:hover {
-    color: #f8fafc; /* Se vuelve blanco al pasar el ratón */
+    color: #f8fafc; 
 }
 
-/* ------------------------------------------ SECCIÓN EXPERIENCIA Y ESTUDIOS -------------------------------------- */
 .seccion-experiencia {
     min-height: 100vh;
     padding: 6rem 2rem;
-    max-width: 1100px; /* Hacemos el contenedor más ancho para que quepan las dos columnas */
+    max-width: 1100px; 
     margin: 0 auto;
     position: relative;
     z-index: 10;
 }
 
-/* La nueva cuadrícula para dividir en dos */
 .grid-trayectoria {
     display: grid;
-    grid-template-columns: 1fr; /* En móvil: 1 columna */
-    gap: 4rem; /* Separación vertical en móvil */
+    grid-template-columns: 1fr; 
+    gap: 4rem; 
 }
 
-/* En pantallas de tablet/ordenador, pasamos a 2 columnas iguales */
 @media (min-width: 850px) {
     .grid-trayectoria {
         grid-template-columns: 1fr 1fr;
     }
 }
 
-/* Títulos de cada columna (Experiencia / Estudios) */
 .titulo-columna {
     display: flex;
     align-items: center;
@@ -1053,19 +1040,16 @@ h1 {
     font-weight: 700;
 }
 
-/* Color esmeralda para los iconos de los títulos */
 .titulo-columna svg {
     color: #34d399; 
 }
 
-/* El contenedor que dibuja la línea vertical a la izquierda */
 .timeline-contenedor {
     position: relative;
     padding-left: 2rem; 
     border-left: 2px solid rgba(52, 211, 153, 0.2); 
 }
 
-/* Cada bloque individual */
 .timeline-item {
     position: relative;
     margin-bottom: 3rem;
@@ -1075,7 +1059,6 @@ h1 {
     margin-bottom: 0;
 }
 
-/* El puntito que va encima de la línea */
 .timeline-punto {
     position: absolute;
     left: -2.52rem; 
@@ -1088,14 +1071,12 @@ h1 {
     transition: all 0.4s ease;
 }
 
-/* Al pasar el ratón, el punto se ilumina */
 .timeline-item:hover .timeline-punto {
     background-color: #34d399;
     border-color: #34d399;
     box-shadow: 0 0 15px rgba(52, 211, 153, 0.6);
 }
 
-/* La tarjeta que contiene el texto */
 .timeline-contenido {
     background: rgba(15, 23, 42, 0.4);
     border: 1px solid rgba(255, 255, 255, 0.05);
@@ -1105,7 +1086,6 @@ h1 {
     backdrop-filter: blur(10px);
 }
 
-/* Efecto hover de la tarjeta */
 .timeline-item:hover .timeline-contenido {
     border-color: rgba(52, 211, 153, 0.3);
     transform: translateX(8px);
@@ -1113,7 +1093,6 @@ h1 {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
-/* La píldora de la fecha */
 .timeline-fecha {
     display: inline-block;
     color: #34d399;
@@ -1127,7 +1106,6 @@ h1 {
     border: 1px solid rgba(52, 211, 153, 0.2);
 }
 
-/* El título del puesto o estudios */
 .timeline-contenido h4 {
     color: #f8fafc;
     font-size: 1.3rem;
@@ -1135,7 +1113,6 @@ h1 {
     font-weight: 700;
 }
 
-/* Nombre de la empresa o instituto */
 .timeline-empresa {
     color: #94a3b8;
     font-size: 1rem;
@@ -1144,7 +1121,6 @@ h1 {
     font-family: var(--fuente-textos); 
 }
 
-/* Texto de la descripción */
 .timeline-contenido p {
     color: #cbd5e1;
     font-size: 0.95rem;
@@ -1152,7 +1128,6 @@ h1 {
     margin-bottom: 0;
 }
 
-/* Botón para enlaces dentro de la trayectoria (cartas, certificados...) */
 .btn-timeline {
     display: inline-flex;
     align-items: center;
@@ -1170,13 +1145,12 @@ h1 {
 }
 
 .btn-timeline:hover {
-    background-color: #34d399; /* Se rellena de verde */
-    color: #020617; /* Texto oscuro para contrastar */
-    box-shadow: 0 0 15px rgba(52, 211, 153, 0.4); /* Resplandor */
-    transform: translateY(-2px); /* Salto suave */
+    background-color: #34d399; 
+    color: #020617; 
+    box-shadow: 0 0 15px rgba(52, 211, 153, 0.4); 
+    transform: translateY(-2px); 
 }
 
-/*------------------------------------------ SECCIÓN CONTACTO -------------------------------------- */
 .seccion-contacto {
     padding: 6rem 2rem;
     max-width: 1000px;
@@ -1185,7 +1159,6 @@ h1 {
     z-index: 10;
 }
 
-/* Tarjeta principal que envuelve todo */
 .tarjeta-contacto {
     background: rgba(15, 23, 42, 0.4);
     border: 1px solid rgba(52, 211, 153, 0.2);
@@ -1198,7 +1171,6 @@ h1 {
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
 }
 
-/* En PC, dividimos en 2 columnas */
 @media (min-width: 768px) {
     .tarjeta-contacto {
         grid-template-columns: 1fr 1.2fr;
@@ -1206,7 +1178,6 @@ h1 {
     }
 }
 
-/* -- Textos de la izquierda -- */
 .info-contacto h3 {
     font-size: 2rem;
     color: #f8fafc;
@@ -1221,7 +1192,7 @@ h1 {
 
 .enlaces-directos {
     display: flex;
-    flex-direction: row; /* Cambiado a fila para que estén uno al lado del otro */
+    flex-direction: row; 
     gap: 1rem;
     margin-top: 1rem;
 }
@@ -1230,25 +1201,24 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 55px;  /* Ancho fijo para formar una caja perfecta */
-    height: 55px; /* Alto fijo */
+    width: 55px;  
+    height: 55px; 
     color: #cbd5e1;
     text-decoration: none;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Transición más suave */
-    border-radius: 14px; /* Bordes redondeados elegantes */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
+    border-radius: 14px; 
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .enlace-contacto:hover {
-    color: #34d399; /* El icono se vuelve verde */
+    color: #34d399; 
     background: rgba(52, 211, 153, 0.1);
     border-color: rgba(52, 211, 153, 0.3);
-    transform: translateY(-5px); /* Ahora el salto es hacia arriba, no hacia la derecha */
-    box-shadow: 0 10px 20px -5px rgba(52, 211, 153, 0.3); /* Resplandor inferior */
+    transform: translateY(-5px); 
+    box-shadow: 0 10px 20px -5px rgba(52, 211, 153, 0.3); 
 }
 
-/* -- Formulario de la derecha -- */
 .formulario-contacto {
     display: flex;
     flex-direction: column;
@@ -1309,7 +1279,6 @@ h1 {
     transform: translateY(-2px);
 }
 
-/* ------------------------------------------ FOOTER -------------------------------------- */
 .pie-pagina {
     text-align: center;
     padding: 2rem;
@@ -1322,4 +1291,17 @@ h1 {
 .pie-pagina p {
     color: #64748b;
     font-size: 0.9rem;
+}
+
+
+
+.revelar {
+    opacity: 0;
+    transform: translateX(-60px); 
+    transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.revelar.visible {
+    opacity: 1;
+    transform: translateX(0);
 }
